@@ -52,7 +52,7 @@ const ToastStyled = styled.div`
             margin: getToastMargin(type),
             padding: common.padding,
             backgroundColor:
-                color && colors[color] ? colors[color][2] : "black",
+                color && colors[color] ? colors[color][3] : "black",
         };
     }}
     ${({ customStyles }) => customStyles}

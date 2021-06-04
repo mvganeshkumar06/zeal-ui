@@ -3,9 +3,8 @@ import styled from "styled-components";
 import style from "../../style/Style";
 
 const Div = styled.div`
-    ${({ row, col, type, style: { common } }) => {
+    ${({ row, col }) => {
         return {
-            border: type === "table" ? common.border : "none",
             display: "grid",
             gridTemplateColumns: `repeat(${col}, 1fr)`,
             gridTemplateRows: `repeat(${row}, 1fr)`,
@@ -14,13 +13,12 @@ const Div = styled.div`
     ${({ customStyles }) => customStyles}
 `;
 
-const Grid = ({ children, row, col, type, customStyles, ...rest }) => {
+const Grid = ({ children, row, col, customStyles, ...rest }) => {
     return (
         <Div
             style={style}
             row={row}
             col={col}
-            type={type}
             customStyles={customStyles}
             {...rest}
         >

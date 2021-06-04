@@ -9,7 +9,7 @@ const MainHeadingStyled = styled.h1`
             textAlign: center && "center",
             fontWeight: bold && "bold",
             fontSize: size && size,
-            color: color && colors[color][2],
+            color: color && colors[color][3],
         };
     }}
     ${({ customStyles }) => customStyles}
@@ -22,7 +22,7 @@ const SubHeadingStyled = styled.h2`
             textAlign: center && "center",
             fontWeight: bold && "bold",
             fontSize: size && size,
-            color: color && colors[color][2],
+            color: color && colors[color][3],
         };
     }}
     ${({ customStyles }) => customStyles}
@@ -46,7 +46,7 @@ const TextStyled = styled.p`
             textAlign: center && "center",
             fontWeight: bold && "bold",
             fontSize: size && size,
-            color: color && colors[color][2],
+            color: colors[color] && colors[color][3],
             overflow: scrollAuto && "auto",
         };
     }}

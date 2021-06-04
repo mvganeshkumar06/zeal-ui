@@ -26,14 +26,20 @@ const SlideIndicator = styled.span`
                 slideIndicatorColor
             ),
             borderRadius: "50%",
-            width: "1rem",
-            height: "1rem",
+            width: "10px",
+            height: "10px",
+            margin: "0.5rem",
         };
     }}
 
     &:hover {
         background-color: ${({ style: { colors }, slideIndicatorColor }) =>
             getSlideIndicatorBgColorOnHover(colors, slideIndicatorColor)};
+    }
+
+    @media (min-width: 768px) {
+        width: 0.75rem;
+        height: 0.75rem;
     }
 `;
 
@@ -43,9 +49,8 @@ const SlideShow = ({
     slides,
     width,
     height,
-    showSlideIndicator,
     slideIndicatorColor,
-    slidesToDisplay,
+    slidesCount = 1,
     customStyles,
     ...rest
 }) => {
@@ -64,15 +69,16 @@ const SlideShow = ({
             position:absolute;
             top:auto;
             bottom:auto;
-            z-index:${style.zIndex[2]}
+            z-index:${style.zIndex[1]}
+            margin:0rem 2rem;
         }
 
         .prevBtn{
-            left:1rem;
+            left:0.5rem;
         }
 
         .nextBtn{
-            right:1rem;
+            right:0.5rem;
         }
 
         .slideIndicatorContainer{
@@ -97,7 +103,7 @@ const SlideShow = ({
 
     const { slideIndex, prevSlide, nextSlide, setSlideIndex } = useSlideShow(
         slides,
-        slidesToDisplay
+        slidesCount
     );
     const slideIndicators = [];
     for (let i = 0; i < slides.length; i++) {
@@ -116,14 +122,45 @@ const SlideShow = ({
 
     const slidesToShow = [];
     let currIndex = slideIndex;
-    const limit =
-        slidesToDisplay && slidesToDisplay <= slides.length
-            ? slidesToDisplay
-            : 1;
+    const limit = slidesCount <= slides.length ? slidesCount : 1;
     for (let count = 1; count <= limit; count++) {
         slidesToShow[currIndex] = slides[currIndex];
         currIndex++;
     }
+
+    const getPrevIndicator = () => {
+        if (slideIndex !== 0) {
+            if (prev) {
+                return (
+                    <span className="prevBtn" onClick={prevSlide}>
+                        {prev}
+                    </span>
+                );
+            }
+            return (
+                <Button className="prevBtn" onClick={prevSlide}>
+                    Previous
+                </Button>
+            );
+        }
+    };
+
+    const getNextIndicator = () => {
+        if (slideIndex + slidesCount < slides.length) {
+            if (next) {
+                return (
+                    <span className="nextBtn" onClick={nextSlide}>
+                        {next}
+                    </span>
+                );
+            }
+            return (
+                <Button className="nextBtn" onClick={nextSlide}>
+                    Previous
+                </Button>
+            );
+        }
+    };
 
     return (
         <Container
@@ -134,28 +171,12 @@ const SlideShow = ({
             customStyles={styles + customStyles}
             {...rest}
         >
-            {prev ? (
-                <span className="prevBtn" onClick={prevSlide}>
-                    {prev}
-                </span>
-            ) : (
-                <Button className="prevBtn" onClick={prevSlide}>
-                    Previous
-                </Button>
-            )}
-            {next ? (
-                <span className="nextBtn" onClick={nextSlide}>
-                    {next}
-                </span>
-            ) : (
-                <Button className="nextBtn" onClick={nextSlide}>
-                    Next
-                </Button>
-            )}
+            {getPrevIndicator()}
+            {getNextIndicator()}
             <Container type="row" rowCenter className="slideContainer">
                 {slidesToShow.map((slide) => slide)}
             </Container>
-            {showSlideIndicator && (
+            {slidesCount === 1 && (
                 <Container
                     type="row"
                     rowCenter
