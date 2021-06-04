@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 
 const useMediaQuery = (mediaQuery) => {
-    const mql = mediaQuery.map((media) => {
-        return window.matchMedia(media);
-    });
+    const mql = window
+        ? mediaQuery.map((media) => {
+            return window.matchMedia(media);
+        })
+        : [];
 
     const [mediaMatches, setMediaMatches] = useState(mql);
 
