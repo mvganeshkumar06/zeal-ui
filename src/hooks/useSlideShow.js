@@ -1,12 +1,12 @@
 import { useState } from "react";
 
-const useSlideShow = (slides, slidesToDisplay) => {
+const useSlideShow = (slides, slidesCount) => {
     const [slideIndex, setSlideIndex] = useState(0);
 
     const nextSlide = () => {
-        if (slidesToDisplay > 1) {
-            if (slideIndex + slidesToDisplay < slides.length) {
-                setSlideIndex(slideIndex + slidesToDisplay);
+        if (slidesCount > 1) {
+            if (slideIndex + slidesCount < slides.length) {
+                setSlideIndex(slideIndex + slidesCount);
             }
         } else {
             setSlideIndex((slideIndex + 1) % slides.length);
@@ -14,10 +14,10 @@ const useSlideShow = (slides, slidesToDisplay) => {
     };
 
     const prevSlide = () => {
-        if (slidesToDisplay > 1) {
+        if (slidesCount > 1) {
             setSlideIndex(
-                slideIndex - slidesToDisplay >= 0
-                    ? slideIndex - slidesToDisplay
+                slideIndex - slidesCount >= 0
+                    ? slideIndex - slidesCount
                     : 0
             );
         } else {

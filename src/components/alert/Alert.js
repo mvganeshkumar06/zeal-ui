@@ -4,16 +4,16 @@ import style from "../../style/Style";
 
 const getAlertBgColor = (type, colors) => {
     if (type === "success") {
-        return colors.green[2];
+        return colors.green[3];
     }
     if (type === "warning") {
-        return colors.orange[2];
+        return colors.orange[3];
     }
     if (type === "danger") {
-        return colors.red[2];
+        return colors.red[3];
     }
     if (type === "info") {
-        return colors.blue[2];
+        return colors.blue[3];
     }
 };
 

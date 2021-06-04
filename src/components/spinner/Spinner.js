@@ -5,7 +5,7 @@ import { useThemeContext } from "../../index";
 
 const getSpinnerColor = (colors, color, theme) => {
     if (colors[color]) {
-        return colors[color][2];
+        return colors[color][3];
     }
     if (theme === "light") {
         return "black";
