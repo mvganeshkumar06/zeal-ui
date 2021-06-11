@@ -9,10 +9,7 @@ const ListItemStyled = styled.li`
             padding: `${common.padding} 0rem`,
             margin: "0rem",
             listStyleType: `${type ? type : ""}`,
-            color:
-                active &&
-                (theme === "light" ? colors.purple[4] : colors.purple[3]),
-            textDecoration: active && "underline",
+            backgroundColor: active ? (theme === "light" ? colors.gray[0] : colors.gray[3]) : ""
         };
     }}
     ${({ customStyles }) => customStyles}

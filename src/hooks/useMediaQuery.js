@@ -1,27 +1,30 @@
 import { useEffect, useState } from "react";
 
 const useMediaQuery = (mediaQuery) => {
-    const mql = window
-        ? mediaQuery.map((media) => {
-            return window.matchMedia(media);
-        })
-        : [];
-
-    const [mediaMatches, setMediaMatches] = useState(mql);
-
-    const handleMediaQuery = () => {
-        setMediaMatches([...mediaMatches]);
-    };
+    const [mediaMatches, setMediaMatches] = useState([]);
 
     useEffect(() => {
+
+        const mql = mediaQuery.map((media) => {
+            return window.matchMedia(media);
+        });
+
+        setMediaMatches(mql);
+
+        const handleMediaQuery = () => {
+            setMediaMatches([...mediaMatches]);
+        };
+
         mql.forEach((media) => {
             media.addEventListener("change", handleMediaQuery);
         });
+
         return () => {
             mql.forEach((media) => {
                 media.removeEventListener("change", handleMediaQuery);
             });
         };
+
     }, []);
 
     return mediaMatches.map((media) => media.matches);

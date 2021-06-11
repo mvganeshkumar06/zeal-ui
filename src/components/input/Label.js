@@ -10,11 +10,10 @@ const LabelStyled = styled.label`
             padding: `0.25rem ${common.padding}`,
             margin: `${common.margin} 0rem`,
             backgroundColor:
-                theme === "light" ? colors.gray[1] : colors.gray[2],
+                theme === "light" ? colors.gray[0] : colors.gray[1],
             color: "black",
-            border: `2px solid ${
-                theme === "light" ? colors.gray[2] : colors.gray[3]
-            }`,
+            border: `2px solid ${theme === "light" ? colors.gray[1] : colors.gray[2]
+                }`,
             borderTopLeftRadius: type === "left" ? common.borderRadius : "0rem",
             borderBottomLeftRadius:
                 type === "left" ? common.borderRadius : "0rem",

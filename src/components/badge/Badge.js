@@ -4,13 +4,13 @@ import style from "../../style/Style";
 
 const getBadgeBgColor = (type, colors) => {
     if (type === "success") {
-        return colors.green[2];
+        return colors.green[3];
     }
     if (type === "danger") {
-        return colors.red[2];
+        return colors.red[3];
     }
     if (type === "new") {
-        return colors.orange[2];
+        return colors.orange[3];
     }
     return colors.gray[2];
 };
@@ -25,7 +25,7 @@ const getBadgeColor = (type, colors) => {
     if (type === "new") {
         return colors.orange[4];
     }
-    return "black";
+    return "white";
 };
 
 const BadgeStyled = styled.p`

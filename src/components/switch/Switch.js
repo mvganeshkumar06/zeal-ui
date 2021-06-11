@@ -37,9 +37,8 @@ const Switch = ({ trackColor, ...rest }) => {
             right:0;
             bottom:0;
             border-radius:0.25rem;
-            background-color: ${
-                theme === "light" ? style.colors.gray[2] : style.colors.gray[3]
-            };
+            background-color: ${theme === "light" ? style.colors.gray[1] : style.colors.gray[2]
+        };
             transition: 0.4s;
         }
         

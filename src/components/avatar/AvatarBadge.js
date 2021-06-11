@@ -13,7 +13,7 @@ const AvatarBadgeStyled = styled.span`
             width: width,
             height: height,
             border: `4px solid ${theme === "light" ? "white" : colors.gray[4]}`,
-            backgroundColor: colors[color] ? colors[color][3] : colors.gray[3],
+            backgroundColor: colors[color] ? colors[color][3] : colors.gray[2],
         };
     }}
 

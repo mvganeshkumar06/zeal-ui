@@ -8,9 +8,9 @@ const getModalBgColor = (colors, color, theme) => {
         return colors[color][3];
     }
     if (theme === "light") {
-        return colors.gray[1];
+        return colors.gray[0];
     }
-    return colors.gray[3];
+    return colors.gray[1];
 };
 
 const ModalBackdrop = styled.div`
@@ -29,13 +29,13 @@ const ModalStyled = styled.div`
     overflow: auto;
     position: relative;
     ${({
-        style: { common, zIndex, colors },
-        type,
-        width,
-        height,
-        color,
-        theme,
-    }) => {
+    style: { common, zIndex, colors },
+    type,
+    width,
+    height,
+    color,
+    theme,
+}) => {
         return {
             width: width,
             height: height,
@@ -68,7 +68,7 @@ const Modal = ({
     return (
         <>
             {isOpen && (
-                <ModalBackdrop style={style}>
+                <ModalBackdrop style={style} className="modalBackdrop">
                     <ModalStyled
                         style={style}
                         theme={theme}

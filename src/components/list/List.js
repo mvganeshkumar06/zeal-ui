@@ -22,14 +22,14 @@ const OrderedList = styled.ol`
 const StackedList = styled.ul`
     li {
         ${({ style: { common } }) => {
-            return {
-                paddingLeft: common.padding,
-                paddingRight: common.padding,
-                listStyleType: "none",
-                border: common.border,
-                borderBottom: "none",
-            };
-        }};
+        return {
+            paddingLeft: common.padding,
+            paddingRight: common.padding,
+            listStyleType: "none",
+            border: common.border,
+            borderBottom: "none",
+        };
+    }};
     }
     li:last-child {
         border-bottom: ${({ style: { common } }) => common.border};
@@ -41,18 +41,18 @@ const ListLink = styled.ul`
     li {
         list-style-type: none;
         ${({ style: { common } }) => {
-            return {
-                margin: `${common.margin} 0rem`,
-                paddingLeft: common.padding,
-                paddingRight: common.padding,
-                borderRadius: common.borderRadius,
-            };
-        }}
+        return {
+            margin: `${common.margin} 0rem`,
+            paddingLeft: common.padding,
+            paddingRight: common.padding,
+            borderRadius: common.borderRadius,
+        };
+    }}
     }
     li:hover {
         cursor: pointer;
         background-color: ${({ style: { colors }, theme }) =>
-            theme === "light" ? colors.gray[1] : colors.gray[3]};
+        theme === "light" ? colors.gray[0] : colors.gray[3]};
     }
     ${({ customStyles }) => customStyles};
 `;

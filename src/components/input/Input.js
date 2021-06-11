@@ -8,9 +8,9 @@ const getBorderColor = (colors, theme, isInvalid) => {
         return colors.red[3];
     }
     if (theme === "light") {
-        return colors.gray[2];
+        return colors.gray[1];
     }
-    return colors.gray[3];
+    return colors.gray[2];
 };
 
 const getFocusColor = (colors, focusColor, theme) => {
@@ -40,11 +40,11 @@ const InputStyled = styled.input`
     &:focus {
         outline: none;
         border: ${({ style: { colors }, theme, focusColor }) =>
-            `2px solid ${getFocusColor(colors, focusColor, theme)}`};
+        `2px solid ${getFocusColor(colors, focusColor, theme)}`};
     }
 
     &::placeholder {
-        color: ${({ style: { colors } }) => colors.gray[3]};
+        color: ${({ style: { colors }, theme }) => theme === "light" ? colors.gray[2] : colors.gray[1]};
     }
 
     &:disabled {

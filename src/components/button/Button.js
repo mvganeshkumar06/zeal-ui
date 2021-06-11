@@ -18,21 +18,21 @@ const getBtnBgColorOnHover = (color, theme, colors) => {
         return colors[color][3];
     }
     if (theme === "light") {
-        return colors.gray[1];
+        return colors.gray[0];
     }
     return colors.gray[3];
 };
 
 const Btn = styled.button`
     ${({
-        style: { common, colors },
-        theme,
-        color,
-        type,
-        width,
-        height,
-        round,
-    }) => {
+    style: { common, colors },
+    theme,
+    color,
+    type,
+    width,
+    height,
+    round,
+}) => {
         return {
             width: width,
             height: height,
@@ -40,6 +40,7 @@ const Btn = styled.button`
             margin: `${common.margin} 0rem`,
             border: common.border,
             borderRadius: `${round ? "50%" : common.borderRadius}`,
+            color: theme === "light" ? "black" : "white",
             backgroundColor: getBtnBgColor(color, theme, colors),
             display: "flex",
             justifyContent: "center",
@@ -50,12 +51,11 @@ const Btn = styled.button`
     }};
     &:hover {
         ${({ theme, style: { colors }, color }) => {
-            return {
-                cursor: "pointer",
-                backgroundColor: getBtnBgColorOnHover(color, theme, colors),
-                color: theme === "light" ? "black" : "white",
-            };
-        }};
+        return {
+            cursor: "pointer",
+            backgroundColor: getBtnBgColorOnHover(color, theme, colors),
+        };
+    }};
     }
     ${({ customStyles }) => customStyles};
 `;

@@ -28,6 +28,8 @@ export { default as Button } from "./components/button/Button";
 
 export { default as Checkbox } from "./components/checkbox/Checkbox";
 
+export { default as ClickAway } from "./components/click-away/ClickAway.js";
+
 export { default as Container } from "./components/container/Container";
 
 export { default as Divider } from "./components/divider/Divider";

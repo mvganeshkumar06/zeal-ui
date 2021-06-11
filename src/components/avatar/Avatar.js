@@ -10,9 +10,8 @@ const AvatarStyled = styled.img`
         return {
             width: width,
             height: height,
-            border: `2px solid ${
-                theme === "light" ? colors.gray[2] : colors.gray[3]
-            }`,
+            border: `2px solid ${theme === "light" ? colors.gray[0] : colors.gray[3]
+                }`,
             marginLeft: avatarItem && "-1rem",
         };
     }};
@@ -31,7 +30,7 @@ const Div = styled.div`
 `;
 
 const AvatarFallback = styled(AvatarStyled)`
-    background-color: ${({ style: { colors } }) => colors.gray[2]};
+    background-color: ${({ style: { colors }, theme }) => theme === "light" ? colors.gray[1] : colors.gray[2]};
 `;
 
 const Avatar = ({
@@ -60,7 +59,18 @@ const Avatar = ({
         />
     );
 
-    const Fallback = <AvatarFallback style={style} {...rest} />;
+    const Fallback = (
+        <AvatarFallback
+            alt={alt}
+            avatarItem={avatarItem}
+            style={style}
+            theme={theme}
+            width={width}
+            height={height}
+            customStyles={customStyles}
+            {...rest}
+        />
+    );
 
     return (
         <Div avatarItem={avatarItem}>

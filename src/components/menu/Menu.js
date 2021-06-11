@@ -2,6 +2,19 @@ import React from "react";
 import style from "../../style/Style";
 import { Container, useThemeContext } from "../../index";
 
+const getMenuBgColor = (color, theme, colors) => {
+
+    if (colors[color]) {
+        return colors[color][3];
+    }
+
+    if (theme === "light") {
+        return style.colors.gray[0];
+    }
+
+    return style.colors.gray[3];
+};
+
 const Menu = ({
     children,
     top,
@@ -9,6 +22,7 @@ const Menu = ({
     bottom,
     left,
     isOpen,
+    color,
     customStyles,
     ...rest
 }) => {
@@ -19,7 +33,7 @@ const Menu = ({
         border-radius:0.25rem;
         position:absolute;
         z-index:${style.zIndex[1]};
-        background-color:${theme === "light" ? "white" : style.colors.gray[4]};
+        background-color:${getMenuBgColor(color, theme, style.colors)};
         top: ${top};
         right: ${right};
         bottom: ${bottom};

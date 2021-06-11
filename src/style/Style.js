@@ -1,18 +1,10 @@
-/*
-    Color palette
-
-    1. Tint - Component subtle interactions
-    2. Base - Component base color
-    3. Shade - Component other interactions
-    4. Dark shade - Component text
-*/
-
 const colorPalette = {
     gray: {
-        1: "#edf2f7",
-        2: "#cbd5e0",
-        3: "#718096",
-        4: "#2d3748",
+        0: "#c1d5e0",
+        1: "#a7c0cd",
+        2: "#29434e",
+        3: "#1c313a",
+        4: "#102027",
     },
     red: {
         1: "#feb2b2",

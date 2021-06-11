@@ -37,11 +37,7 @@ const ImageStyled = styled.img`
         return {
             width: `${getImageWidth(type, width)}`,
             height: `${getImageHeight(type, height)}`,
-            margin: `${
-                type === "row" || type === "col"
-                    ? "0rem"
-                    : `${common.margin} 0rem`
-            }`,
+            margin: `${(type === "row" || type === "col") ? "0rem" : `${common.margin} 0rem`}`,
             borderRadius: getBorderRadius(type),
         };
     }}
@@ -49,7 +45,7 @@ const ImageStyled = styled.img`
 `;
 
 const ImageFallback = styled(ImageStyled)`
-    background-color: ${({ style: { colors } }) => colors.gray[2]};
+    background-color: ${({ style: { colors }, theme }) => theme === "light" ? colors.gray[1] : colors.gray[2]};
 `;
 
 const Image = ({ src, alt, type, width, height, customStyles, ...rest }) => {
@@ -66,7 +62,17 @@ const Image = ({ src, alt, type, width, height, customStyles, ...rest }) => {
         />
     );
 
-    const Fallback = <ImageFallback style={style} {...rest} />;
+    const Fallback = (
+        <ImageFallback
+            alt={alt}
+            type={type}
+            style={style}
+            width={width}
+            height={height}
+            customStyles={customStyles}
+            {...rest}
+        />
+    );
 
     return <>{src ? Image : Fallback}</>;
 };
