@@ -28,8 +28,6 @@ export { default as Button } from "./components/button/Button";
 
 export { default as Checkbox } from "./components/checkbox/Checkbox";
 
-export { default as ClickAway } from "./components/click-away/ClickAway.js";
-
 export { default as Container } from "./components/container/Container";
 
 export { default as Divider } from "./components/divider/Divider";
@@ -41,10 +39,6 @@ export { default as Image } from "./components/image/Image";
 export { default as InlineCode } from "./components/inline-code/InlineCode";
 
 export { default as Input } from "./components/input/Input";
-
-export { default as InputContainer } from "./components/input/InputContainer";
-
-export { default as Label } from "./components/input/Label";
 
 export { default as List } from "./components/list/List";
 
