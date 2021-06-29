@@ -51,8 +51,7 @@ const ListLink = styled.ul`
     }
     li:hover {
         cursor: pointer;
-        background-color: ${({ style: { colors }, theme }) =>
-        theme === "light" ? colors.gray[0] : colors.gray[3]};
+        background-color: ${({ style: { colors }, theme }) => theme === "light" ? colors.gray[2] : colors.gray[4]};
     }
     ${({ customStyles }) => customStyles};
 `;

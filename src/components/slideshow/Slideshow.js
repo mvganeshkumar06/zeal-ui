@@ -1,47 +1,17 @@
 import React from "react";
-import styled from "styled-components";
 import style from "../../style/Style";
 import useSlideShow from "../../hooks/useSlideShow";
-import { Container, Button } from "../../index";
+import { Container, Button, useThemeContext } from "../../index";
 
-const getSlideIndicatorBgColor = (colors, slideIndicatorColor) => {
-    if (colors[slideIndicatorColor]) {
-        return colors[slideIndicatorColor][3];
+const getSlidesBgColor = (color, theme, colors) => {
+    if (colors[color]) {
+        return colors[color][4];
     }
-    return colors.gray[2];
+    if (theme === "light") {
+        return colors.gray[1];
+    }
+    return colors.gray[4];
 };
-
-const getSlideIndicatorBgColorOnHover = (colors, slideIndicatorColor) => {
-    if (colors[slideIndicatorColor]) {
-        return colors[slideIndicatorColor][4];
-    }
-    return colors.gray[3];
-};
-
-const SlideIndicator = styled.span`
-    ${({ style: { colors }, slideIndicatorColor }) => {
-        return {
-            backgroundColor: getSlideIndicatorBgColor(
-                colors,
-                slideIndicatorColor
-            ),
-            borderRadius: "50%",
-            width: "10px",
-            height: "10px",
-            margin: "0.5rem",
-        };
-    }}
-
-    &:hover {
-        background-color: ${({ style: { colors }, slideIndicatorColor }) =>
-            getSlideIndicatorBgColorOnHover(colors, slideIndicatorColor)};
-    }
-
-    @media (min-width: 768px) {
-        width: 0.75rem;
-        height: 0.75rem;
-    }
-`;
 
 const SlideShow = ({
     prev,
@@ -49,18 +19,22 @@ const SlideShow = ({
     slides,
     width,
     height,
-    slideIndicatorColor,
     slidesCount = 1,
+    color,
     customStyles,
     ...rest
 }) => {
+
+    const { theme } = useThemeContext();
+
     const styles = `
         position:relative;
-        width:${width ? width : "100%"};
-        height:${height ? height : "25rem"};
+        width:${width};
+        height:${height};
         border-radius:0.25rem;
         margin:2rem 0rem;
-
+        background-color:${getSlidesBgColor(color, theme, style.colors)};
+        
         .slideContainer{
             width:100%;
         }
@@ -81,44 +55,12 @@ const SlideShow = ({
             right:0.5rem;
         }
 
-        .slideIndicatorContainer{
-            position:absolute;
-            bottom:1rem;
-            width:100%;
-        }
-
-        .slideIndicator{
-            margin:0rem 2%;
-        }
-
-        .slideIndicatorActive{
-            background-color:${getSlideIndicatorBgColorOnHover(
-                style.colors,
-                slideIndicatorColor
-            )};
-            border:2px solid white;
-        }
-
     `;
 
-    const { slideIndex, prevSlide, nextSlide, setSlideIndex } = useSlideShow(
+    const { slideIndex, prevSlide, nextSlide } = useSlideShow(
         slides,
         slidesCount
     );
-    const slideIndicators = [];
-    for (let i = 0; i < slides.length; i++) {
-        slideIndicators.push(
-            <SlideIndicator
-                style={style}
-                slideIndicatorColor={slideIndicatorColor}
-                key={i}
-                className={`slideIndicator ${
-                    slideIndex === i ? "slideIndicatorActive" : ""
-                }`}
-                onClick={() => setSlideIndex(i)}
-            />
-        );
-    }
 
     const slidesToShow = [];
     let currIndex = slideIndex;
@@ -138,7 +80,7 @@ const SlideShow = ({
                 );
             }
             return (
-                <Button className="prevBtn" onClick={prevSlide}>
+                <Button className="prevBtn" color={color} onClick={prevSlide}>
                     Previous
                 </Button>
             );
@@ -155,8 +97,8 @@ const SlideShow = ({
                 );
             }
             return (
-                <Button className="nextBtn" onClick={nextSlide}>
-                    Previous
+                <Button className="nextBtn" color={color} onClick={nextSlide}>
+                    Next
                 </Button>
             );
         }
@@ -176,16 +118,6 @@ const SlideShow = ({
             <Container type="row" rowCenter className="slideContainer">
                 {slidesToShow.map((slide) => slide)}
             </Container>
-            {slidesCount === 1 && (
-                <Container
-                    type="row"
-                    rowCenter
-                    colCenter
-                    className="slideIndicatorContainer"
-                >
-                    {slideIndicators.map((slideIndicator) => slideIndicator)}
-                </Container>
-            )}
         </Container>
     );
 };

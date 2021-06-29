@@ -1,20 +1,16 @@
 import React from "react";
 import styled from "styled-components";
 import style from "../../style/Style";
-import { useThemeContext } from "../../index";
 
-const getInlineCodeBgColor = (color, theme, colors) => {
+const getInlineCodeBgColor = (color, colors) => {
     if (colors[color]) {
         return colors[color][3];
     }
-    if (theme === "light") {
-        return colors.gray[0];
-    }
-    return colors.gray[1];
+    return colors.gray[2];
 };
 
 const InlineCodeStyled = styled.span`
-    ${({ style: { common, colors }, theme, width, height, color }) => {
+    ${({ style: { common, colors }, width, height, color }) => {
         return {
             width: width,
             height: height,
@@ -22,19 +18,17 @@ const InlineCodeStyled = styled.span`
             margin: "0.25rem",
             borderRadius: common.borderRadius,
             color: "black",
-            backgroundColor: getInlineCodeBgColor(color, theme, colors),
+            backgroundColor: getInlineCodeBgColor(color, colors),
         };
     }}
     ${({ customStyles }) => customStyles}
 `;
 
 const InlineCode = ({ children, customStyles, width, height, color, ...rest }) => {
-    const { theme } = useThemeContext();
 
     return (
         <InlineCodeStyled
             style={style}
-            theme={theme}
             width={width}
             height={height}
             color={color}

@@ -18,27 +18,22 @@ const Div = styled.div`
     display: inline-block;
     border-radius: 50%;
     animation: spin 1s ease-in-out infinite;
-    ${({ style: { colors }, theme, color, width, height }) => {
+    ${({ style: { colors, common }, theme, color, width, height }) => {
         return {
             width: width ? width : "3rem",
             height: height ? height : "3rem",
-            border: `4px solid ${
-                theme === "light"
-                    ? "rgba(0, 0, 0, 0.1)"
-                    : "rgba(255, 255, 255, 0.1)"
-            }`,
+            marginTop: common.margin,
+            border: `4px solid ${theme === "light"
+                ? colors.gray[2]
+                : colors.gray[4]
+                }`,
             borderTopColor: getSpinnerColor(colors, color, theme),
         };
     }}
 
     @keyframes spin {
         to {
-            -webkit-transform: rotate(360deg);
-        }
-    }
-    @-webkit-keyframes spin {
-        to {
-            -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
         }
     }
 `;

@@ -10,7 +10,7 @@ const getDividerColor = (color, theme, colors) => {
     if (theme === "light") {
         return "black";
     }
-    return "white";
+    return colors.gray[2];
 };
 
 const DividerStyled = styled.span`

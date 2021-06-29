@@ -39,7 +39,6 @@ const ToastBackdrop = styled.div`
 `;
 
 const ToastStyled = styled.div`
-    color: white;
     overflow: auto;
     ${({ style: { common, zIndex, colors }, color, type, width, height }) => {
         return {
@@ -51,8 +50,8 @@ const ToastStyled = styled.div`
             zIndex: zIndex[4],
             margin: getToastMargin(type),
             padding: common.padding,
-            backgroundColor:
-                color && colors[color] ? colors[color][3] : "black",
+            backgroundColor: color && colors[color] ? colors[color][3] : "black",
+            color: color ? "black" : "white",
         };
     }}
     ${({ customStyles }) => customStyles}
@@ -66,14 +65,16 @@ const Toast = ({
     height,
     isOpen,
     onClose,
-    delay,
+    delay = 3000,
     color,
     ...rest
 }) => {
     useEffect(() => {
-        const timerID = setTimeout(() => onClose(), delay);
-        return () => clearTimeout(timerID);
-    });
+        if (isOpen) {
+            const timerID = setTimeout(() => onClose(), delay);
+            return () => clearTimeout(timerID);
+        }
+    }, [isOpen]);
 
     return (
         <>

@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
+import styled from "styled-components";
 import style from "../../style/Style";
 import { Container, useThemeContext } from "../../index";
 
@@ -9,11 +10,15 @@ const getMenuBgColor = (color, theme, colors) => {
     }
 
     if (theme === "light") {
-        return style.colors.gray[0];
+        return "white";
     }
 
-    return style.colors.gray[3];
+    return colors.gray[4];
 };
+
+const MenuWrapper = styled.div`
+    position: relative;
+`;
 
 const Menu = ({
     children,
@@ -23,6 +28,7 @@ const Menu = ({
     left,
     isOpen,
     color,
+    onClickAway,
     customStyles,
     ...rest
 }) => {
@@ -40,17 +46,40 @@ const Menu = ({
         left: ${left};
         box-shadow:${style.common.boxShadow};
     `;
+
+    const ref = useRef();
+
+    useEffect(() => {
+        if (isOpen) {
+            const handleOnClickAway = (event) => {
+                let clickedAway = false;
+                if (ref.current) {
+                    clickedAway = !ref.current.contains(event.target);
+                }
+                if (clickedAway) {
+                    onClickAway();
+                }
+            };
+            document.addEventListener("click", handleOnClickAway);
+            return () => document.removeEventListener("click", handleOnClickAway);
+        }
+    }, [isOpen]);
+
+
     return (
         <>
             {isOpen && (
-                <Container
-                    type="col"
-                    withBorder
-                    customStyles={styles + customStyles}
-                    {...rest}
-                >
-                    {children}
-                </Container>
+                <MenuWrapper>
+                    <Container
+                        ref={ref}
+                        type="col"
+                        withBorder
+                        customStyles={styles + customStyles}
+                        {...rest}
+                    >
+                        {children}
+                    </Container>
+                </MenuWrapper>
             )}
         </>
     );

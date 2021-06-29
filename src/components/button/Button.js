@@ -5,22 +5,22 @@ import style from "../../style/Style";
 
 const getBtnBgColor = (color, theme, colors) => {
     if (colors[color]) {
-        return colors[color][2];
+        return colors[color][3];
     }
     if (theme === "light") {
-        return "white";
+        return colors.gray[1];
     }
-    return colors.gray[2];
+    return colors.gray[3];
 };
 
 const getBtnBgColorOnHover = (color, theme, colors) => {
     if (colors[color]) {
-        return colors[color][3];
+        return colors[color][4];
     }
     if (theme === "light") {
-        return colors.gray[0];
+        return colors.gray[2];
     }
-    return colors.gray[3];
+    return colors.gray[4];
 };
 
 const Btn = styled.button`
@@ -40,7 +40,7 @@ const Btn = styled.button`
             margin: `${common.margin} 0rem`,
             border: common.border,
             borderRadius: `${round ? "50%" : common.borderRadius}`,
-            color: theme === "light" ? "black" : "white",
+            color: theme === "light" ? "black" : (color ? "black" : "white"),
             backgroundColor: getBtnBgColor(color, theme, colors),
             display: "flex",
             justifyContent: "center",

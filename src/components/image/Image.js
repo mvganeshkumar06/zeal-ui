@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import style from "../../style/Style";
+import { useThemeContext } from "../../index";
 
 const getBorderRadius = (type) => {
     if (type === "row" || type === "col") {
@@ -45,10 +46,13 @@ const ImageStyled = styled.img`
 `;
 
 const ImageFallback = styled(ImageStyled)`
-    background-color: ${({ style: { colors }, theme }) => theme === "light" ? colors.gray[1] : colors.gray[2]};
+    background-color: ${({ style: { colors }, theme }) => theme === "light" ? colors.gray[2] : colors.gray[3]};
 `;
 
 const Image = ({ src, alt, type, width, height, customStyles, ...rest }) => {
+
+    const { theme } = useThemeContext();
+
     const Image = (
         <ImageStyled
             src={src}
@@ -64,9 +68,11 @@ const Image = ({ src, alt, type, width, height, customStyles, ...rest }) => {
 
     const Fallback = (
         <ImageFallback
+            src="https://images.unsplash.com/photo-1600456899121-68eda5705257"
             alt={alt}
             type={type}
             style={style}
+            theme={theme}
             width={width}
             height={height}
             customStyles={customStyles}

@@ -8,12 +8,12 @@ const AvatarBadgeStyled = styled.span`
     position: absolute;
     bottom: 5%;
     right: 3%;
-    ${({ style: { colors }, color, theme, width, height }) => {
+    ${({ style: { colors }, color, width, height, theme }) => {
         return {
             width: width,
             height: height,
-            border: `4px solid ${theme === "light" ? "white" : colors.gray[4]}`,
-            backgroundColor: colors[color] ? colors[color][3] : colors.gray[2],
+            border: `2px solid ${theme === "light" ? colors.gray[2] : colors.gray[3]}`,
+            backgroundColor: (colors[color] ? colors[color][3] : (theme === "light" ? colors.gray[3] : colors.gray[2])),
         };
     }}
 

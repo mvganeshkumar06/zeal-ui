@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
 import style from "../../style/Style";
 import { useThemeContext } from "../../index";
@@ -8,9 +8,9 @@ const getModalBgColor = (colors, color, theme) => {
         return colors[color][3];
     }
     if (theme === "light") {
-        return colors.gray[0];
+        return "white";
     }
-    return colors.gray[1];
+    return colors.gray[2];
 };
 
 const ModalBackdrop = styled.div`
@@ -19,7 +19,7 @@ const ModalBackdrop = styled.div`
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: #2d3748d8;
+    background-color: ${({ theme }) => theme === "light" ? "rgba(228, 232, 241, 0.85)" : "rgba(24, 31, 37, 0.85)"};
     z-index: ${({ style: { zIndex } }) => zIndex[3]};
     display: flex;
     justify-content: center;
@@ -61,20 +61,41 @@ const Modal = ({
     height,
     isOpen,
     color,
+    onClickAway,
     ...rest
 }) => {
     const { theme } = useThemeContext();
 
+    const ref = useRef();
+
+    useEffect(() => {
+        if (isOpen) {
+            const handleOnClickAway = (event) => {
+                let clickedAway = false;
+                if (ref.current) {
+                    clickedAway = !ref.current.contains(event.target);
+                }
+                if (clickedAway) {
+                    onClickAway();
+                }
+            };
+            document.addEventListener("click", handleOnClickAway);
+            return () => document.removeEventListener("click", handleOnClickAway);
+        }
+    }, [isOpen]);
+
     return (
         <>
             {isOpen && (
-                <ModalBackdrop style={style} className="modalBackdrop">
+                <ModalBackdrop style={style} theme={theme} className="modalBackdrop">
                     <ModalStyled
+                        ref={ref}
                         style={style}
                         theme={theme}
                         width={width}
                         height={height}
                         type={type}
+                        color={color}
                         customStyles={customStyles}
                         {...rest}
                     >

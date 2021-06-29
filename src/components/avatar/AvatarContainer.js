@@ -1,17 +1,12 @@
 import React from "react";
 import { Container } from "../../index";
 
-const AvatarContainer = ({ children, ...rest }) => {
-    const styles = `   
-        margin-left: 1rem;
-    `;
-
+const AvatarContainer = ({ children, customStyles, ...rest }) => {
     return (
         <Container
             type="row"
             avatarContainer
-            className="avatarContainer"
-            customStyles={styles}
+            customStyles={customStyles}
             rest={rest}
         >
             {children}

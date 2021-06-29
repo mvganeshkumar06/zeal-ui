@@ -1,57 +1,40 @@
 import React from "react";
 import styled from "styled-components";
-import { useThemeContext } from "../../index";
-import style from "../../style/Style";
 
 const AvatarStyled = styled.img`
     border-radius: 50%;
     position: relative;
-    ${({ avatarItem, width, height, style: { colors }, theme }) => {
+    ${({ width, height }) => {
         return {
             width: width,
             height: height,
-            border: `2px solid ${theme === "light" ? colors.gray[0] : colors.gray[3]
-                }`,
-            marginLeft: avatarItem && "-1rem",
         };
     }};
 
     ${({ customStyles }) => customStyles}
 `;
 
+const AvatarFallback = styled(AvatarStyled)``;
+
 const Div = styled.div`
     width: fit-content;
     position: relative;
-    ${({ avatarItem }) => {
-        return {
-            transform: avatarItem && "rotateY(-1deg)",
-        };
-    }}
-`;
-
-const AvatarFallback = styled(AvatarStyled)`
-    background-color: ${({ style: { colors }, theme }) => theme === "light" ? colors.gray[1] : colors.gray[2]};
 `;
 
 const Avatar = ({
     src,
     alt,
     badge,
-    avatarItem,
     width,
     height,
     customStyles,
     ...rest
 }) => {
-    const { theme } = useThemeContext();
 
     const Avatar = (
         <AvatarStyled
             src={src}
             alt={alt}
-            avatarItem={avatarItem}
-            style={style}
-            theme={theme}
             width={width}
             height={height}
             customStyles={customStyles}
@@ -61,10 +44,8 @@ const Avatar = ({
 
     const Fallback = (
         <AvatarFallback
+            src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png"
             alt={alt}
-            avatarItem={avatarItem}
-            style={style}
-            theme={theme}
             width={width}
             height={height}
             customStyles={customStyles}
@@ -73,7 +54,7 @@ const Avatar = ({
     );
 
     return (
-        <Div avatarItem={avatarItem}>
+        <Div>
             {src ? Avatar : Fallback}
             {badge}
         </Div>

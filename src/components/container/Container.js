@@ -1,4 +1,4 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import styled from "styled-components";
 import style from "../../style/Style";
 
@@ -96,16 +96,16 @@ const getAlignItems = (
 
 const Div = styled.div`
     ${({
-        type,
-        width,
-        height,
-        style: { common },
-        avatarContainer,
-        withBorder,
-        scrollAuto,
-        children,
-        ...alignOptions
-    }) => {
+    type,
+    width,
+    height,
+    style: { common },
+    avatarContainer,
+    withBorder,
+    scrollAuto,
+    children,
+    ...alignOptions
+}) => {
         return {
             width: width,
             height: height,
@@ -122,7 +122,7 @@ const Div = styled.div`
     ${({ customStyles }) => customStyles}
 `;
 
-const Container = ({
+const Container = forwardRef(({
     children,
     type,
     rowStart,
@@ -145,9 +145,10 @@ const Container = ({
     scrollAuto,
     as,
     ...rest
-}) => {
+}, ref) => {
     return (
         <Div
+            ref={ref}
             style={style}
             type={type}
             rowStart={rowStart}
@@ -174,6 +175,6 @@ const Container = ({
             {children}
         </Div>
     );
-};
+});
 
 export default Container;
