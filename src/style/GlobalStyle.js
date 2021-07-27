@@ -5,16 +5,15 @@ const GlobalStyle = createGlobalStyle`
 	font-family:sans-serif;
 	margin:0;
 	padding:0;
-	line-height: 1.5rem;
 
 	/* Scroll bar styles works on Firefox */
-	scrollbar-width: auto;
+	scrollbar-width: thin;
 	scrollbar-color: ${({ style: { colors }, theme }) => `${theme === "light" ? "rgba(56, 73, 87, 0.5)" : colors.gray[3]} transparent`};
 }
 
 /* Scroll bar styles works on Chrome, Edge, and Safari */
 *::-webkit-scrollbar {
-	width: 6px;
+	width: 12px;
 }
 
 *::-webkit-scrollbar-track {
@@ -23,7 +22,8 @@ const GlobalStyle = createGlobalStyle`
 
 *::-webkit-scrollbar-thumb {
 	background-color: ${({ style: { colors }, theme }) => theme === "light" ? "rgba(56, 73, 87, 0.5)" : colors.gray[3]};
-	border-radius: 2px;
+	border-radius: 10px;
+	border:${({ style: { colors }, theme }) => `3px solid ${theme === "light" ? "white" : colors.gray[5]}`};
 }
 
 /* Default focus */
@@ -40,6 +40,34 @@ const GlobalStyle = createGlobalStyle`
 			transition: "background-color 0.5s ease",
 		};
 	}}
+}
+
+h1{
+	margin: 0.67em 0em;
+}
+
+h2{
+	margin: 0.83em 0em;
+}
+
+h3{
+	margin: 1em 0em;
+}
+
+h4{
+	margin: 1.33em 0em;
+}
+
+h5{
+	margin: 1.67em 0em;
+}
+
+h6{
+	margin: 2.33em 0em;
+}
+
+p{
+	margin:1em 0em;
 }
 
 a {

@@ -63,7 +63,11 @@ const style = {
         margin: "0.5rem",
         border: `1px solid ${colorPalette.gray[3]}`,
         borderRadius: "0.25rem",
-        boxShadow: `1px 1px 2px ${colorPalette.gray[3]}`,
+        boxShadow: {
+            1: "0px 1px 5px 0px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 3px 1px -2px rgba(0, 0, 0, 0.12)",
+            2: "0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12)",
+            3: "0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 6px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 18px 0px rgba(0, 0, 0, 0.12)",
+        }
     },
     colors: {
         ...colorPalette,
@@ -71,9 +75,9 @@ const style = {
     zIndex: {
         auto: "auto",
         0: 0,
-        1: 10, // Floating btns, Badges
-        2: 20, // Bg overlay, Navigation
-        3: 30, // Modal backdrop
+        1: 10, // Floating button
+        2: 20, // Sidebar, Bg overlay
+        3: 30, // Header, Modal and toast backdrop
         4: 40, // Modal, Toast
     },
 };
