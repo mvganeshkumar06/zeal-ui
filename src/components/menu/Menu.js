@@ -44,7 +44,7 @@ const Menu = ({
         right: ${right};
         bottom: ${bottom};
         left: ${left};
-        box-shadow:${style.common.boxShadow};
+        box-shadow:${style.common.boxShadow[2]};
     `;
 
     const ref = useRef();

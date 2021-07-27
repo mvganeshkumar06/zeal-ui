@@ -46,7 +46,7 @@ const ToastStyled = styled.div`
             height: height,
             border: common.border,
             borderRadius: common.borderRadius,
-            boxShadow: common.boxShadow,
+            boxShadow: common.boxShadow[2],
             zIndex: zIndex[4],
             margin: getToastMargin(type),
             padding: common.padding,

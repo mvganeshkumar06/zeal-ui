@@ -18,7 +18,7 @@ const DividerStyled = styled.span`
         return {
             display: "block",
             width: width ? width : "100%",
-            marginBottom: "1rem",
+            margin: "1rem 0rem",
             borderBottom: `${height ? height : "1px"} solid ${getDividerColor(color, theme, colors)}`,
         };
     }}

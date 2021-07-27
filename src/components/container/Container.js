@@ -109,13 +109,13 @@ const Div = styled.div`
         return {
             width: width,
             height: height,
-            border: `${withBorder && common.border}`,
+            border: `${withBorder ? common.border : ""}`,
             display: "flex",
             flexDirection: getFlexDirection(type),
             justifyContent: getJustifyContent(type, alignOptions),
             alignItems: getAlignItems(type, alignOptions),
-            transformStyle: avatarContainer && "preserve-3d",
-            overflow: `${scrollAuto && "auto"}`,
+            transformStyle: avatarContainer ? "preserve-3d" : "",
+            overflow: `${scrollAuto ? "auto" : ""}`,
         };
     }};
 

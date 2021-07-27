@@ -5,11 +5,10 @@ import style from "../../style/Style";
 const MainHeadingStyled = styled.h1`
     ${({ style: { colors }, center, bold, size, color }) => {
         return {
-            margin: "1.5rem 0rem",
-            textAlign: center && "center",
-            fontWeight: bold && "bold",
-            fontSize: size && size,
-            color: color && colors[color][3],
+            textAlign: center ? "center" : "",
+            fontWeight: bold ? "bold" : "",
+            fontSize: size ? size : "",
+            color: color ? colors[color][3] : "",
         };
     }}
     ${({ customStyles }) => customStyles}
@@ -18,11 +17,10 @@ const MainHeadingStyled = styled.h1`
 const SubHeadingStyled = styled.h2`
     ${({ style: { colors }, center, bold, size, color }) => {
         return {
-            margin: "1.25rem 0rem",
-            textAlign: center && "center",
-            fontWeight: bold && "bold",
-            fontSize: size && size,
-            color: color && colors[color][3],
+            textAlign: center ? "center" : "",
+            fontWeight: bold ? "bold" : "",
+            fontSize: size ? size : "",
+            color: color ? colors[color][3] : "",
         };
     }}
     ${({ customStyles }) => customStyles}
@@ -30,24 +28,23 @@ const SubHeadingStyled = styled.h2`
 
 const TextStyled = styled.p`
     ${({
-        style: { colors },
-        center,
-        bold,
-        size,
-        color,
-        width,
-        height,
-        scrollAuto,
-    }) => {
+    style: { colors },
+    center,
+    bold,
+    size,
+    color,
+    width,
+    height,
+    scrollAuto,
+}) => {
         return {
             width: width,
             height: height,
-            margin: "0.5rem 0rem",
-            textAlign: center && "center",
-            fontWeight: bold && "bold",
-            fontSize: size && size,
-            color: colors[color] && colors[color][3],
-            overflow: scrollAuto && "auto",
+            textAlign: center ? "center" : "",
+            fontWeight: bold ? "bold" : "",
+            fontSize: size ? size : "",
+            color: colors[color] ? colors[color][3] : "",
+            overflow: scrollAuto ? "auto" : "",
         };
     }}
     ${({ customStyles }) => customStyles}

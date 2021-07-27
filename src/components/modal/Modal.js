@@ -43,10 +43,10 @@ const ModalStyled = styled.div`
             color: "black",
             border: common.border,
             borderRadius: common.borderRadius,
-            boxShadow: common.boxShadow,
+            boxShadow: common.boxShadow[2],
             zIndex: zIndex[4],
             marginTop: `${type === "center" ? "auto" : "5rem"}`,
-            marginBottom: `${type === "center" && "auto"}`,
+            marginBottom: `${type === "center" ? "auto" : ""}`,
             padding: common.padding,
         };
     }}

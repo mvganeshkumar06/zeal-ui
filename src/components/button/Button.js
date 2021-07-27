@@ -32,6 +32,10 @@ const Btn = styled.button`
     width,
     height,
     round,
+    top,
+    right,
+    bottom,
+    left
 }) => {
         return {
             width: width,
@@ -45,8 +49,12 @@ const Btn = styled.button`
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            position: type === "floating" && "fixed",
-            boxShadow: type === "floating" && common.boxShadow,
+            position: type === "floating" ? "fixed" : "",
+            boxShadow: type === "floating" ? common.boxShadow[2] : "",
+            top: top ? top : "",
+            right: right ? right : "",
+            bottom: bottom ? bottom : "",
+            left: left ? left : "",
         };
     }};
     &:hover {
@@ -68,6 +76,10 @@ const Button = ({
     round,
     width,
     height,
+    top,
+    right,
+    bottom,
+    left,
     ...rest
 }) => {
     const { theme } = useThemeContext();
@@ -75,6 +87,10 @@ const Button = ({
     return (
         <Btn
             type={type}
+            top={top}
+            right={right}
+            bottom={bottom}
+            left={left}
             color={color}
             round={round}
             width={width}
