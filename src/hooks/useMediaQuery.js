@@ -4,28 +4,27 @@ const useMediaQuery = (mediaQuery) => {
     const [mediaMatches, setMediaMatches] = useState([]);
 
     useEffect(() => {
-
         const mql = mediaQuery.map((media) => {
             return window.matchMedia(media);
         });
-
         setMediaMatches(mql);
+    }, []);
 
+    useEffect(() => {
         const handleMediaQuery = () => {
             setMediaMatches([...mediaMatches]);
         };
 
-        mql.forEach((media) => {
+        mediaMatches.forEach((media) => {
             media.addEventListener("change", handleMediaQuery);
         });
 
         return () => {
-            mql.forEach((media) => {
+            mediaMatches.forEach((media) => {
                 media.removeEventListener("change", handleMediaQuery);
             });
         };
-
-    }, []);
+    }, [mediaMatches]);
 
     return mediaMatches.map((media) => media.matches);
 };
