@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import style from "../../style/Style";
+import { useStyleContext } from "../../index";
 
 const getInlineCodeBgColor = (color, colors) => {
     if (colors[color]) {
@@ -25,7 +25,7 @@ const InlineCodeStyled = styled.span`
 `;
 
 const InlineCode = ({ children, customStyles, width, height, color, ...rest }) => {
-
+    const style = useStyleContext();
     return (
         <InlineCodeStyled
             style={style}

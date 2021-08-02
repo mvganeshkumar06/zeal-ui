@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import style from "../../style/Style";
+import { useStyleContext } from "../../index";
 
 const Div = styled.div`
     ${({ row, col }) => {
@@ -14,6 +14,7 @@ const Div = styled.div`
 `;
 
 const Grid = ({ children, row, col, customStyles, ...rest }) => {
+    const style = useStyleContext();
     return (
         <Div
             style={style}

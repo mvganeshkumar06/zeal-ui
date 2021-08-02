@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import styled from "styled-components";
-import style from "../../style/Style";
+import { useStyleContext } from "../../index";
 
 const getToastMargin = (type) => {
     if (type === "center") {
@@ -69,6 +69,9 @@ const Toast = ({
     color,
     ...rest
 }) => {
+
+    const style = useStyleContext();
+
     useEffect(() => {
         if (isOpen) {
             const timerID = setTimeout(() => onClose(), delay);

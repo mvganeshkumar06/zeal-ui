@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { useThemeContext } from "../../index";
-import style from "../../style/Style";
+import { useStyleContext, useThemeContext } from "../../index";
 
 const ListItemStyled = styled.li`
     ${({ type, style: { common, colors }, theme, active }) => {
@@ -16,6 +15,7 @@ const ListItemStyled = styled.li`
 `;
 
 const ListItem = ({ type, children, active, customStyles, ...rest }) => {
+    const style = useStyleContext();
     const { theme } = useThemeContext();
     return (
         <ListItemStyled

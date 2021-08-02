@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import style from "../../style/Style";
+import { useStyleContext } from "../../index";
 
 const MainHeadingStyled = styled.h1`
     ${({ style: { colors }, center, bold, size, color }) => {
@@ -63,6 +63,7 @@ const Text = ({
     customStyles,
     ...rest
 }) => {
+    const style = useStyleContext();
     if (type === "mainHeading") {
         return (
             <MainHeadingStyled

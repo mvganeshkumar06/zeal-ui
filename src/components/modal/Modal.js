@@ -1,7 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
-import style from "../../style/Style";
-import { useThemeContext } from "../../index";
+import { useStyleContext, useThemeContext } from "../../index";
 
 const getModalBgColor = (colors, color, theme) => {
     if (colors[color]) {
@@ -64,6 +63,7 @@ const Modal = ({
     onClickAway,
     ...rest
 }) => {
+    const style = useStyleContext();
     const { theme } = useThemeContext();
 
     const ref = useRef();

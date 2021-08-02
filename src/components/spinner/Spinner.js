@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import style from "../../style/Style";
-import { useThemeContext } from "../../index";
+import { useStyleContext, useThemeContext } from "../../index";
 
 const getSpinnerColor = (colors, color, theme) => {
     if (colors[color]) {
@@ -39,6 +38,7 @@ const Div = styled.div`
 `;
 
 const Spinner = ({ color, width, height }) => {
+    const style = useStyleContext();
     const { theme } = useThemeContext();
     return (
         <Div

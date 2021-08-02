@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import style from "../../style/Style";
-import { useThemeContext } from "../../index";
+import { useStyleContext, useThemeContext } from "../../index";
 
 const getDividerColor = (color, theme, colors) => {
     if (colors[color]) {
@@ -27,6 +26,7 @@ const DividerStyled = styled.span`
 `;
 
 const Divider = ({ customStyles, width, height, color, ...rest }) => {
+    const style = useStyleContext();
     const { theme } = useThemeContext();
     return (
         <DividerStyled

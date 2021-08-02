@@ -1,7 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
-import style from "../../style/Style";
-import { Container, useThemeContext } from "../../index";
+import { Container, useStyles } from "../../index";
 
 const getMenuBgColor = (color, theme, colors) => {
 
@@ -32,9 +31,8 @@ const Menu = ({
     customStyles,
     ...rest
 }) => {
-    const { theme } = useThemeContext();
 
-    const styles = `
+    const styles = useStyles((style, theme) => `
         padding:0rem 0.5rem;
         border-radius:0.25rem;
         position:absolute;
@@ -45,7 +43,7 @@ const Menu = ({
         bottom: ${bottom};
         left: ${left};
         box-shadow:${style.common.boxShadow[2]};
-    `;
+    `);
 
     const ref = useRef();
 

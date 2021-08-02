@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import style from "../../style/Style";
-import { useThemeContext } from "../../index";
+import { useStyleContext, useThemeContext } from "../../index";
 
 const getBorderColor = (colors, theme, isInvalid) => {
     if (isInvalid) {
@@ -62,6 +61,7 @@ const Input = ({
     customStyles,
     ...rest
 }) => {
+    const style = useStyleContext();
     const { theme } = useThemeContext();
 
     return (

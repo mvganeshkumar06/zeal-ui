@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import style from "../../style/Style";
-import { useThemeContext } from "../../index";
+import { useStyleContext, useThemeContext } from "../../index";
 
 const getBorderRadius = (type) => {
     if (type === "row" || type === "col") {
@@ -51,6 +50,7 @@ const ImageFallback = styled(ImageStyled)`
 
 const Image = ({ src, alt, type, width, height, customStyles, ...rest }) => {
 
+    const style = useStyleContext();
     const { theme } = useThemeContext();
 
     const Image = (

@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { useThemeContext } from "../../index";
-import style from "../../style/Style";
+import { useStyleContext, useThemeContext } from "../../index";
 
 const UnorderedList = styled.ul`
     margin: ${({ style: { common } }) => `${common.margin} 0rem`};
@@ -57,6 +56,7 @@ const ListLink = styled.ul`
 `;
 
 const List = ({ type, children, customStyles, ...rest }) => {
+    const style = useStyleContext();
     const { theme } = useThemeContext();
     if (type === "ol") {
         return (

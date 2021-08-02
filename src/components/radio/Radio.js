@@ -1,6 +1,5 @@
 import React from "react";
-import style from "../../style/Style";
-import { useThemeContext, Span } from "../../index";
+import { useStyleContext, useThemeContext, Span } from "../../index";
 
 const getCheckedColor = (colors, checkedColor, theme) => {
     if (colors[checkedColor]) {
@@ -13,6 +12,7 @@ const getCheckedColor = (colors, checkedColor, theme) => {
 };
 
 const Radio = ({ children, checkedColor, ...rest }) => {
+    const style = useStyleContext();
     const { theme } = useThemeContext();
 
     const styles = `
@@ -34,54 +34,49 @@ const Radio = ({ children, checkedColor, ...rest }) => {
                 display: inline-block;
                 width: 1rem;
                 height: 1rem;
-                background: ${
-                    theme === "light" ? "white" : style.colors.gray[4]
-                };
-                border: 2px solid ${
-                    theme === "light"
-                        ? style.colors.gray[3]
-                        : style.colors.gray[2]
-                };
+                background: ${theme === "light" ? "white" : style.colors.gray[4]
+        };
+                border: 2px solid ${theme === "light"
+            ? style.colors.gray[3]
+            : style.colors.gray[2]
+        };
                 border-radius:50%;
             }
             
             // Radio focus
             &:focus + label:before {
                 outline: none;
-                box-shadow: 0 0 0 2px ${
-                    theme === "light"
-                        ? style.colors.gray[2]
-                        : style.colors.gray[3]
-                };
+                box-shadow: 0 0 0 2px ${theme === "light"
+            ? style.colors.gray[2]
+            : style.colors.gray[3]
+        };
             }
 
             // Radio checked
             &:checked + label:before {
                 background-color: ${getCheckedColor(
-                    style.colors,
-                    checkedColor,
-                    theme
-                )};
+            style.colors,
+            checkedColor,
+            theme
+        )};
                 border-radius:50%;
             }
             
             // Label disabled
             &:disabled + label {
-                color: ${
-                    theme === "light"
-                        ? style.colors.gray[2]
-                        : style.colors.gray[3]
-                };
+                color: ${theme === "light"
+            ? style.colors.gray[2]
+            : style.colors.gray[3]
+        };
                 cursor: auto;
             }
 
             // Radio disabled
             &:disabled + label:before {
-                background: ${
-                    theme === "light"
-                        ? style.colors.gray[2]
-                        : style.colors.gray[3]
-                };
+                background: ${theme === "light"
+            ? style.colors.gray[2]
+            : style.colors.gray[3]
+        };
             }
         }
 

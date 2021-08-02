@@ -1,6 +1,5 @@
 import React from "react";
-import style from "../../style/Style";
-import { useThemeContext, Span } from "../../index";
+import { useStyles, Span } from "../../index";
 
 const getTrackColor = (colors, trackColor, theme) => {
     if (colors[trackColor]) {
@@ -13,10 +12,9 @@ const getTrackColor = (colors, trackColor, theme) => {
 };
 
 const Switch = ({ trackColor, onChange, checked }) => {
-    const { theme } = useThemeContext();
 
-    const styles = `
-        margin:0.25rem 0rem;
+    const styles = useStyles((style, theme) => `
+        margin:0.25rem 0.5rem;
 
         .switch {
             position:relative;
@@ -39,7 +37,7 @@ const Switch = ({ trackColor, onChange, checked }) => {
             right:0;
             bottom:0;
             border:1px solid ${theme === "light" ? "black" : "white"};
-            border-radius:${style.common.borderRadius};
+            border-radius:1.5px;
             background-color:${theme === "light" ? style.colors.gray[2] : style.colors.gray[3]};
             transition:0.4s;
         }
@@ -53,7 +51,7 @@ const Switch = ({ trackColor, onChange, checked }) => {
             left:4px;
             bottom:4px;
             border:1px solid ${theme === "light" ? "black" : "white"};
-            border-radius:${style.common.borderRadius};
+            border-radius:1.5px;
             background-color:white;
             transition:0.4s;
         }
@@ -69,7 +67,7 @@ const Switch = ({ trackColor, onChange, checked }) => {
         input:disabled + .slider{
             cursor:not-allowed;
         }
-    `;
+    `);
 
     return (
         <Span customStyles={styles}>

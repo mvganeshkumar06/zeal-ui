@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { useThemeContext } from "../../index";
-import style from "../../style/Style";
+import { useStyleContext, useThemeContext } from "../../index";
 
 const getBtnBgColor = (color, theme, colors) => {
     if (colors[color]) {
@@ -82,6 +81,7 @@ const Button = ({
     left,
     ...rest
 }) => {
+    const style = useStyleContext();
     const { theme } = useThemeContext();
 
     return (

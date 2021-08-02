@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import style from "../../style/Style";
+import { useStyleContext } from "../../index";
 
 const getAlertBgColor = (type, colors) => {
     if (type === "success") {
@@ -36,6 +36,7 @@ const AlertStyled = styled.div`
 `;
 
 const Alert = ({ children, type, width, height, customStyles, ...rest }) => {
+    const style = useStyleContext();
     return (
         <AlertStyled
             type={type}

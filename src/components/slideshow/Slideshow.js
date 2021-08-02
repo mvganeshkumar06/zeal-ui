@@ -1,7 +1,6 @@
 import React from "react";
-import style from "../../style/Style";
 import useSlideShow from "../../hooks/useSlideShow";
-import { Container, Button, useThemeContext } from "../../index";
+import { Container, Button, useStyles } from "../../index";
 
 const getSlidesBgColor = (color, theme, colors) => {
     if (colors[color]) {
@@ -25,9 +24,7 @@ const SlideShow = ({
     ...rest
 }) => {
 
-    const { theme } = useThemeContext();
-
-    const styles = `
+    const styles = useStyles((style, theme) => `
         position:relative;
         width:${width};
         height:${height};
@@ -54,8 +51,7 @@ const SlideShow = ({
         .nextBtn{
             right:0.5rem;
         }
-
-    `;
+    `);
 
     const { slideIndex, prevSlide, nextSlide } = useSlideShow(
         slides,

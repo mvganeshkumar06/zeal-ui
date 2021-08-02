@@ -1,6 +1,6 @@
 import React, { forwardRef } from "react";
 import styled from "styled-components";
-import style from "../../style/Style";
+import { useStyleContext } from "../../index";
 
 const getFlexDirection = (type) => {
     if (type === "row") {
@@ -146,6 +146,7 @@ const Container = forwardRef(({
     as,
     ...rest
 }, ref) => {
+    const style = useStyleContext();
     return (
         <Div
             ref={ref}

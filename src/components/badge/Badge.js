@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import style from "../../style/Style";
-import { useThemeContext } from "../../index";
+import { useStyleContext, useThemeContext } from "../../index";
 
 const getBadgeBgColor = (color, colors, theme) => {
     if (colors[color]) {
@@ -34,6 +33,7 @@ const BadgeStyled = styled.p`
 
 const Badge = ({ children, customStyles, color, width, height, ...rest }) => {
 
+    const style = useStyleContext();
     const { theme } = useThemeContext();
 
     return (
