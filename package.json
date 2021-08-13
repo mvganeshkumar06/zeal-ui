@@ -2,7 +2,8 @@
     "name": "@zeal-ui/core",
     "version": "1.4.7",
     "description": "Zeal UI is a simple, minimalistic component library to build your awesome apps faster.",
-    "main": "dist/main.js",
+    "browser": "dist/web.js",
+    "main": "dist/node.js",
     "files": [
         "dist"
     ],
