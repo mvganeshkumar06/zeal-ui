@@ -12,7 +12,7 @@ const ZealProvider = ({ children, headerContents, sidebarContents, footerContent
         <ThemeContext.Provider value={{ theme: currTheme, toggleTheme }}>
             <GlobalStyle
                 theme={currTheme}
-                style={style}
+                baseStyle={style}
                 customGlobalStyles={customGlobalStyles}
             />
             <StyleContext.Provider value={style}>
