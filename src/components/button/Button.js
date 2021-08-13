@@ -30,7 +30,6 @@ const Btn = styled.button`
     type,
     width,
     height,
-    round,
     top,
     right,
     bottom,
@@ -42,7 +41,7 @@ const Btn = styled.button`
             padding: `0.25rem ${common.padding}`,
             margin: `${common.margin} 0rem`,
             border: common.border,
-            borderRadius: `${round ? "50%" : common.borderRadius}`,
+            borderRadius: common.borderRadius,
             color: theme === "light" ? "black" : (color ? "black" : "white"),
             backgroundColor: getBtnBgColor(color, theme, colors),
             display: "flex",
@@ -72,7 +71,6 @@ const Button = ({
     color,
     type,
     customStyles,
-    round,
     width,
     height,
     top,
@@ -92,7 +90,6 @@ const Button = ({
             bottom={bottom}
             left={left}
             color={color}
-            round={round}
             width={width}
             height={height}
             style={style}

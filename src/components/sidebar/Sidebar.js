@@ -86,7 +86,7 @@ const Sidebar = ({ contents, showSidebar }) => {
                             </Container>
                             {showContents[label] && (
                                 <List type="link" className="listItem">
-                                    {items.map(({ item, to }) => <ListItem key={item} className="subHeading"><a href={to}>{item}</a></ListItem>)}
+                                    {items.map(({ item, to }) => <a href={to} key={item}><ListItem className="subHeading">{item}</ListItem></a>)}
                                 </List>
                             )}
                         </Container>

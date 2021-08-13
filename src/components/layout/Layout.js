@@ -19,6 +19,8 @@ const Layout = ({ title, children, disableSidebar }) => {
     const styles = useStyles((style, theme) => `
         .document{
             width:100vw;
+            padding:1rem;
+            box-sizing:border-box;
             min-height:100vh;
         }
 

@@ -100,7 +100,6 @@ const Div = styled.div`
     width,
     height,
     style: { common },
-    avatarContainer,
     withBorder,
     scrollAuto,
     children,
@@ -114,7 +113,6 @@ const Div = styled.div`
             flexDirection: getFlexDirection(type),
             justifyContent: getJustifyContent(type, alignOptions),
             alignItems: getAlignItems(type, alignOptions),
-            transformStyle: avatarContainer ? "preserve-3d" : "",
             overflow: `${scrollAuto ? "auto" : ""}`,
         };
     }};
@@ -138,7 +136,6 @@ const Container = forwardRef(({
     colAround,
     colEven,
     customStyles,
-    avatarContainer,
     withBorder,
     width,
     height,
@@ -165,7 +162,6 @@ const Container = forwardRef(({
             colAround={colAround}
             colEven={colEven}
             customStyles={customStyles}
-            avatarContainer={avatarContainer}
             withBorder={withBorder}
             width={width}
             height={height}

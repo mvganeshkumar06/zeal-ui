@@ -46,7 +46,7 @@ const Header = ({ contents, showSidebar, setShowSidebar, isDesktop, showHeaderMo
 
     return (
         <Container as="nav" type="row" width="100%" height="4rem" rowBetween colCenter customStyles={styles}>
-            <Container type="row" height="100%" colCenter>
+            <Container type="row" height="100%" colCenter key="left">
                 <MenuBar onClick={() => setShowSidebar(!showSidebar)} showSidebar={showSidebar} setShowSidebar={setShowSidebar} />
                 {contents.logo && <Image src={contents.logo.src} alt={contents.logo.alt} width="2.5rem" height="2.5rem" className="headerLogo" />}
                 <Text bold>{contents.title}</Text>
@@ -59,7 +59,7 @@ const Header = ({ contents, showSidebar, setShowSidebar, isDesktop, showHeaderMo
                     }
                 })}
             </Container>
-            <Container type="row" height="100%" colCenter>
+            <Container type="row" height="100%" colCenter key="right">
                 {isDesktop && itemsRight.map(({ item, to, linkType }) => {
                     if (linkType === "external") {
                         return <a href={to} target="_blank" key={item} className="headerItem">{item}</a>;

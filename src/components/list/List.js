@@ -6,6 +6,7 @@ const UnorderedList = styled.ul`
     margin: ${({ style: { common } }) => `${common.margin} 0rem`};
     li {
         margin-left: 1rem;
+        list-style-type: ${({ styleType }) => styleType};
     }
     ${({ customStyles }) => customStyles}
 `;
@@ -14,6 +15,7 @@ const OrderedList = styled.ol`
     margin: ${({ style: { common } }) => `${common.margin} 0rem`};
     li {
         margin-left: 1rem;
+        list-style-type: ${({ styleType }) => styleType};
     }
     ${({ customStyles }) => customStyles}
 `;
@@ -55,12 +57,12 @@ const ListLink = styled.ul`
     ${({ customStyles }) => customStyles};
 `;
 
-const List = ({ type, children, customStyles, ...rest }) => {
+const List = ({ type, styleType, children, customStyles, ...rest }) => {
     const style = useStyleContext();
     const { theme } = useThemeContext();
     if (type === "ol") {
         return (
-            <OrderedList style={style} customStyles={customStyles} {...rest}>
+            <OrderedList style={style} styleType={styleType} customStyles={customStyles} {...rest}>
                 {children}
             </OrderedList>
         );
@@ -87,7 +89,7 @@ const List = ({ type, children, customStyles, ...rest }) => {
     }
 
     return (
-        <UnorderedList style={style} customStyles={customStyles} {...rest}>
+        <UnorderedList style={style} styleType={styleType} customStyles={customStyles} {...rest}>
             {children}
         </UnorderedList>
     );
