@@ -22,8 +22,6 @@ export { default as Avatar } from "./components/avatar/Avatar";
 
 export { default as AvatarBadge } from "./components/avatar/AvatarBadge";
 
-export { default as AvatarContainer } from "./components/avatar/AvatarContainer";
-
 export { default as Badge } from "./components/badge/Badge";
 
 export { default as Button } from "./components/button/Button";
