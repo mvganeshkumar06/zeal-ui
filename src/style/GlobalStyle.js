@@ -8,7 +8,7 @@ const GlobalStyle = createGlobalStyle`
 
 	/* Scroll bar styles works on Firefox */
 	scrollbar-width: thin;
-	scrollbar-color: ${({ style: { colors }, theme }) => `${theme === "light" ? "rgba(56, 73, 87, 0.5)" : colors.gray[3]} transparent`};
+	scrollbar-color: ${({ baseStyle: { colors }, theme }) => `${theme === "light" ? "rgba(56, 73, 87, 0.5)" : colors.gray[3]} transparent`};
 }
 
 /* Scroll bar styles works on Chrome, Edge, and Safari */
@@ -21,9 +21,9 @@ const GlobalStyle = createGlobalStyle`
 }
 
 *::-webkit-scrollbar-thumb {
-	background-color: ${({ style: { colors }, theme }) => theme === "light" ? "rgba(56, 73, 87, 0.5)" : colors.gray[3]};
+	background-color: ${({ baseStyle: { colors }, theme }) => theme === "light" ? "rgba(56, 73, 87, 0.5)" : colors.gray[3]};
 	border-radius: 10px;
-	border:${({ style: { colors }, theme }) => `3px solid ${theme === "light" ? "white" : colors.gray[5]}`};
+	border:${({ baseStyle: { colors }, theme }) => `3px solid ${theme === "light" ? "white" : colors.gray[5]}`};
 }
 
 /* Default focus */
@@ -33,7 +33,7 @@ const GlobalStyle = createGlobalStyle`
 
 /* Base styles for light and dark mode */
 :root{
-	${({ style: { colors }, theme }) => {
+	${({ baseStyle: { colors }, theme }) => {
 		return {
 			backgroundColor: theme === "light" ? "white" : colors.gray[5],
 			color: theme === "light" ? "black" : "white",
