@@ -5,7 +5,7 @@ const clientConfig = {
     mode: "production",
     entry: "./src/index.js",
     output: {
-        filename: "main.js",
+        filename: "web.js",
         path: path.resolve(__dirname, "dist"),
         library: {
             name: "zeal-ui",
@@ -53,7 +53,7 @@ const serverConfig = {
     mode: "production",
     entry: "./src/index.js",
     output: {
-        filename: "main.node.js",
+        filename: "node.js",
         path: path.resolve(__dirname, "dist"),
         library: {
             name: "zeal-ui",
