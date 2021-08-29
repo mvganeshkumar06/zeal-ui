@@ -5,25 +5,25 @@ const GlobalStyle = createGlobalStyle`
 	font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 	margin:0;
 	padding:0;
+}
 
+html{
 	/* Scroll bar styles works on Firefox */
 	scrollbar-width: thin;
-	scrollbar-color: ${({ baseStyle: { colors }, theme }) => `${theme === "light" ? "rgba(56, 73, 87, 0.5)" : colors.gray[3]} transparent`};
+	scrollbar-color: ${({ baseStyle: { colors }, theme }) => theme === "light" ? `rgb(191,191,191) ${colors.gray[2]}` : `${colors.gray[3]} ${colors.gray[4]}`};
 }
 
 /* Scroll bar styles works on Chrome, Edge, and Safari */
-*::-webkit-scrollbar {
-	width: 12px;
+html::-webkit-scrollbar {
+	width: 0.75rem;
 }
 
-*::-webkit-scrollbar-track {
-	background: transparent;
+html::-webkit-scrollbar-thumb {
+	background-color: ${({ baseStyle: { colors }, theme }) => theme === "light" ? "rgb(191,191,191)" : colors.gray[3]};
 }
 
-*::-webkit-scrollbar-thumb {
-	background-color: ${({ baseStyle: { colors }, theme }) => theme === "light" ? "rgba(56, 73, 87, 0.5)" : colors.gray[3]};
-	border-radius: 10px;
-	border:${({ baseStyle: { colors }, theme }) => `3px solid ${theme === "light" ? "white" : colors.gray[5]}`};
+html::-webkit-scrollbar-track {
+	background: ${({ baseStyle: { colors }, theme }) => theme === "light" ? colors.gray[2] : colors.gray[4]};
 }
 
 /* Default focus */
