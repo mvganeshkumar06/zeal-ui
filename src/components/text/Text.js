@@ -3,8 +3,10 @@ import styled from "styled-components";
 import { useStyleContext } from "../../index";
 
 const MainHeadingStyled = styled.h1`
-    ${({ style: { colors }, center, bold, size, color }) => {
+    ${({ style: { colors }, center, bold, size, color, width, height, }) => {
         return {
+            width: width,
+            height: height,
             textAlign: center ? "center" : "",
             fontWeight: bold ? "bold" : "",
             fontSize: size ? size : "",
@@ -15,8 +17,10 @@ const MainHeadingStyled = styled.h1`
 `;
 
 const SubHeadingStyled = styled.h2`
-    ${({ style: { colors }, center, bold, size, color }) => {
+    ${({ style: { colors }, center, bold, size, color, width, height, }) => {
         return {
+            width: width,
+            height: height,
             textAlign: center ? "center" : "",
             fontWeight: bold ? "bold" : "",
             fontSize: size ? size : "",
@@ -71,6 +75,8 @@ const Text = ({
                 bold={bold}
                 size={size}
                 color={color}
+                width={width}
+                height={height}
                 style={style}
                 customStyles={customStyles}
                 {...rest}
@@ -86,6 +92,8 @@ const Text = ({
                 bold={bold}
                 size={size}
                 color={color}
+                width={width}
+                height={height}
                 style={style}
                 customStyles={customStyles}
                 {...rest}

@@ -40,7 +40,6 @@ const ModalStyled = styled.div`
             height: height,
             backgroundColor: getModalBgColor(colors, color, theme),
             color: "black",
-            border: common.border,
             borderRadius: common.borderRadius,
             boxShadow: common.boxShadow[2],
             zIndex: zIndex[4],

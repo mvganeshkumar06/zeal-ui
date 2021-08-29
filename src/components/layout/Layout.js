@@ -30,7 +30,7 @@ const Layout = ({ title, children, disableSidebar }) => {
             }
 
             .sidebarOpened{
-                width:calc(100% - 18rem);
+                width:${disableSidebar ? "100%" : "calc(100 % - 18rem)"};
             }
 
             .sidebarClosed{
@@ -68,6 +68,7 @@ const Layout = ({ title, children, disableSidebar }) => {
         contents: headerContents,
         showSidebar,
         setShowSidebar,
+        disableSidebar,
         isDesktop,
         showHeaderMobile,
         setShowHeaderMobile

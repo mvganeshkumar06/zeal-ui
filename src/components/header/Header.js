@@ -2,7 +2,7 @@ import React from "react";
 import { Container, Text, Image, useStyles, ThemeSwitch } from "../../index";
 import { MenuBar, VerticalDots } from "../../icons/index";
 
-const Header = ({ contents, showSidebar, setShowSidebar, isDesktop, showHeaderMobile, setShowHeaderMobile }) => {
+const Header = ({ contents, showSidebar, setShowSidebar, disableSidebar, isDesktop, showHeaderMobile, setShowHeaderMobile }) => {
 
     if (!contents || !contents.links) {
         throw { message: "Missing property in header contents" };
@@ -32,6 +32,10 @@ const Header = ({ contents, showSidebar, setShowSidebar, isDesktop, showHeaderMo
         .headerItem{
             margin:0rem 0.5rem;
         }
+
+        .themeSwitch{
+            margin-top:0.5rem;
+        }
     `);
 
     let itemsLeft = [], itemsRight = [];
@@ -47,7 +51,7 @@ const Header = ({ contents, showSidebar, setShowSidebar, isDesktop, showHeaderMo
     return (
         <Container as="nav" type="row" width="100%" height="4rem" rowBetween colCenter customStyles={styles}>
             <Container type="row" height="100%" colCenter key="left">
-                <MenuBar onClick={() => setShowSidebar(!showSidebar)} showSidebar={showSidebar} setShowSidebar={setShowSidebar} />
+                {!disableSidebar && <MenuBar onClick={() => setShowSidebar(!showSidebar)} showSidebar={showSidebar} setShowSidebar={setShowSidebar} />}
                 {contents.logo && <Image src={contents.logo.src} alt={contents.logo.alt} width="2.5rem" height="2.5rem" className="headerLogo" />}
                 <Text bold>{contents.title}</Text>
                 {isDesktop && itemsLeft.map(({ item, to, linkType }) => {
@@ -68,7 +72,7 @@ const Header = ({ contents, showSidebar, setShowSidebar, isDesktop, showHeaderMo
                         return <a href={to} key={item} className="headerItem">{item}</a>;
                     }
                 })}
-                <ThemeSwitch />
+                <ThemeSwitch className="themeSwitch" />
                 {!isDesktop && <VerticalDots className="verticalDots" onClick={() => setShowHeaderMobile(!showHeaderMobile)} />}
             </Container>
         </Container>

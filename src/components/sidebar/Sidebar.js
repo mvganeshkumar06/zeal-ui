@@ -35,6 +35,18 @@ const Sidebar = ({ contents, showSidebar }) => {
             overflow:auto;
         }
 
+        .label{
+            padding:0rem ${style.common.padding};
+            box-sizing:border-box;
+            margin:0.25rem 0rem;
+        }
+
+        .label:hover{
+            cursor: pointer;
+            background-color:${theme === "light" ? style.colors.gray[2] : style.colors.gray[4]};
+            border-radius:${style.common.borderRadius};
+        }
+
         .listItem{
             width:100%;
         }
@@ -67,11 +79,11 @@ const Sidebar = ({ contents, showSidebar }) => {
         }
     };
 
-    const showArrows = (label, labelIsOpened) => {
+    const showArrows = (labelIsOpened) => {
         if (labelIsOpened) {
-            return <Arrow type="bottom" onClick={() => toggleContent(label)} />;
+            return <Arrow type="bottom" />;
         }
-        return <Arrow type="right" onClick={() => toggleContent(label)} />;
+        return <Arrow type="right" />;
     };
 
     return (
@@ -80,9 +92,9 @@ const Sidebar = ({ contents, showSidebar }) => {
                 <Container type="col" className="sidebarContainer">
                     {contents.links.map(({ label, items }) => (
                         <Container type="col" width="100%" key={label}>
-                            <Container type="row" width="100%" rowBetween colCenter>
+                            <Container type="row" width="100%" height="2.5rem" rowBetween colCenter onClick={() => toggleContent(label)} className="label">
                                 <Text>{label}</Text>
-                                {items.length > 0 && showArrows(label, showContents[label])}
+                                {items.length > 0 && showArrows(showContents[label])}
                             </Container>
                             {showContents[label] && (
                                 <List type="link" className="listItem">
