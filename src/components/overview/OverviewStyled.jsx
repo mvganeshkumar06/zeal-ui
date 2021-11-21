@@ -9,7 +9,7 @@ const OverviewStyled = styled(Container)`
 	position: sticky;
 	top: 5rem;
 	right: 0rem;
-	margin: 1rem;
+	margin: 1rem 1rem 1rem 0rem;
 	padding: 0rem 0.5rem;
 	background-color: var(--zeal-color-background-dark);
 	border-radius: 0.125rem;

@@ -80,7 +80,9 @@ const Layout = ({
 				<Container
 					type="col"
 					width="100%"
-					className={`documentContainer ${showSidebar ? 'sidebarOpened' : ''}`}
+					className={`documentContainer ${showSidebar ? 'sidebarActive' : ''} ${
+						overviewEnabled ? 'overviewActive' : ''
+					} ${showSidebar && overviewEnabled ? 'sidebarAndOverviewActive' : ''}`}
 				>
 					{children}
 				</Container>

@@ -9,7 +9,7 @@ const DividerStyled = styled.span`
 			margin: '0.5rem 0rem',
 			borderBottom: `${height ? height : '1px'} solid ${getBackgroundColor(
 				color,
-				'var(--zeal-color-highlight-base)',
+				'var(--zeal-color-on-background)',
 			)}`,
 		};
 	}}

@@ -11,18 +11,25 @@ const LayoutStyled = styled(Container)`
 	.documentContainer {
 		width: 100%;
 		min-height: 100vh;
-		margin: 0rem 1rem;
+	}
+
+	@media (min-width: ${({ theme }) => theme.breakpoint.desktop}) {
+		.documentContainer {
+			margin: 0rem 1rem;
+		}
 	}
 
 	@media (min-width: ${({ theme }) => theme.breakpoint.desktopLarge}) {
-		.documentContainer {
-			width: calc(100% - 16rem);
-			margin-right: 0rem;
+		.sidebarActive {
+			width: calc(100% - 18rem);
 		}
 
-		.sidebarOpened {
+		.overviewActive {
+			width: calc(100% - 16rem);
+		}
+
+		.sidebarAndOverviewActive {
 			width: calc(100% - 34rem);
-			margin-left: 0rem;
 		}
 	}
 `;

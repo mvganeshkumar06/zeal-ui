@@ -25,6 +25,7 @@ const SidebarMobileStyled = styled(Drawer)`
 
 	.sidebarMobileBtnActive {
 		background-color: ${({ color }) => getHighlightColor(color)};
+		border: 2px solid var(--zeal-color-on-background);
 	}
 
 	.sidebarMobileLabel {
@@ -45,7 +46,6 @@ const SidebarMobileStyled = styled(Drawer)`
 	}
 
 	.sidebarMobileListItem {
-		width: 100%;
 		margin-left: 0.5rem;
 	}
 
