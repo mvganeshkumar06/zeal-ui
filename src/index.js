@@ -28,6 +28,8 @@ export { default as Badge } from './components/badge/Badge';
 
 export { default as Button } from './components/button/Button';
 
+export { default as ColorModeScript } from './components/color-mode-script/ColorModeScript';
+
 export { default as ColorModeSwitch } from './components/color-mode-switch/ColorModeSwitch';
 
 export { default as Container } from './components/container/Container';
