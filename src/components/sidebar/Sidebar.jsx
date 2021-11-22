@@ -8,9 +8,7 @@ const getSidebarContentsAndLogMissingProperties = (contents, sidebarContents, si
 	if (contents && contents.links) {
 		for (const link of contents.links) {
 			if (!link.label) {
-				console.log({
-					message: 'In sidebarContents.links[i], the property label is missing',
-				});
+				console.log('Zeal UI : In sidebarContents.links[i], the property label is missing');
 			} else {
 				sidebarLabel[link.label] = false;
 				const currLink = {
@@ -22,10 +20,9 @@ const getSidebarContentsAndLogMissingProperties = (contents, sidebarContents, si
 					currLink.items = [];
 					for (const linkItem of link.items) {
 						if (!linkItem.item || !linkItem.to) {
-							console.log({
-								message:
-									'In sidebarContents.links[i].items[j], the property item or to is missing',
-							});
+							console.log(
+								'Zeal UI : In sidebarContents.links[i].items[j], the property item or to is missing',
+							);
 						} else {
 							currLink.items.push(linkItem);
 						}
@@ -35,9 +32,7 @@ const getSidebarContentsAndLogMissingProperties = (contents, sidebarContents, si
 			}
 		}
 	} else {
-		console.log({
-			message: 'sidebarContents or sidebarContents.links is missing',
-		});
+		console.log('Zeal UI : sidebarContents or sidebarContents.links is missing');
 	}
 };
 

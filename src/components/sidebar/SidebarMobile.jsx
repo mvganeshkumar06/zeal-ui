@@ -12,9 +12,7 @@ const getSidebarContentsAndLogMissingProperties = (
 	if (sidebarContents && sidebarContents.links) {
 		for (const link of sidebarContents.links) {
 			if (!link.label) {
-				console.log({
-					message: 'In sidebarContents.links[i], the property label is missing',
-				});
+				console.log('Zeal UI : In sidebarContents.links[i], the property label is missing');
 			} else {
 				sidebarLabel[link.label] = false;
 				const currLink = {
@@ -26,10 +24,9 @@ const getSidebarContentsAndLogMissingProperties = (
 					currLink.items = [];
 					for (const linkItem of link.items) {
 						if (!linkItem.item || !linkItem.to) {
-							console.log({
-								message:
-									'In sidebarContents.links[i].items[j], the property item or to is missing',
-							});
+							console.log(
+								'Zeal UI : In sidebarContents.links[i].items[j], the property item or to is missing',
+							);
 						} else {
 							currLink.items.push(linkItem);
 						}
@@ -39,9 +36,7 @@ const getSidebarContentsAndLogMissingProperties = (
 			}
 		}
 	} else {
-		console.log({
-			message: 'sidebarContents or sidebarContents.links is missing',
-		});
+		console.log('Zeal UI : sidebarContents or sidebarContents.links is missing');
 	}
 };
 
@@ -49,18 +44,15 @@ const getHeaderContentsAndLogMissingProperties = (headerContents, validHeaderCon
 	if (headerContents && headerContents.links) {
 		for (const item of headerContents.links) {
 			if (!item.item || !item.to || !item.linkType || !item.position) {
-				console.log({
-					message:
-						'In headerContents.links[i], the property item, to, linkType or position is missing',
-				});
+				console.log(
+					'Zeal UI : In headerContents.links[i], the property item, to, linkType or position is missing',
+				);
 			} else {
 				validHeaderContents.push(item);
 			}
 		}
 	} else {
-		console.log({
-			message: 'headerContents or headerContents.links is missing',
-		});
+		console.log('Zeal UI : headerContents or headerContents.links is missing');
 	}
 };
 

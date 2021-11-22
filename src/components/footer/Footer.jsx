@@ -6,9 +6,9 @@ const getFooterContentsAndLogMissingProperties = (contents, footerContents) => {
 	if (contents && contents.links) {
 		for (const link of contents.links) {
 			if (!link.title || !link.items) {
-				console.log({
-					message: 'In footerContents.links[i], the property title or items is missing',
-				});
+				console.log(
+					'Zeal UI : In footerContents.links[i], the property title or items is missing',
+				);
 			} else {
 				const currLink = {
 					title: link.title,
@@ -16,10 +16,9 @@ const getFooterContentsAndLogMissingProperties = (contents, footerContents) => {
 				};
 				for (const item of link.items) {
 					if (!item.item || !item.to || !item.linkType) {
-						console.log({
-							message:
-								'In footerContents.links[i].items[j], the property item, to or linkType is missing',
-						});
+						console.log(
+							'Zeal UI : In footerContents.links[i].items[j], the property item, to or linkType is missing',
+						);
 					} else {
 						currLink.items.push(item);
 					}
@@ -28,9 +27,7 @@ const getFooterContentsAndLogMissingProperties = (contents, footerContents) => {
 			}
 		}
 	} else {
-		console.log({
-			message: 'footerContents or footerContents.links is missing',
-		});
+		console.log('Zeal UI : footerContents or footerContents.links is missing');
 	}
 	return footerContents;
 };

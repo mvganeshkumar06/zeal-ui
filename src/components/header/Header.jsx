@@ -8,10 +8,9 @@ const getHeaderContentsAndLogMissingProperties = (contents, leftItems, rightItem
 	if (contents && contents.links) {
 		for (const item of contents.links) {
 			if (!item.item || !item.to || !item.linkType || !item.position) {
-				console.log({
-					message:
-						'In headerContents.links[i], the property item, to, linkType or position is missing',
-				});
+				console.log(
+					'Zeal UI : In headerContents.links[i], the property item, to, linkType or position is missing',
+				);
 			} else {
 				if (item.position === 'left') {
 					leftItems.push(item);
@@ -21,9 +20,7 @@ const getHeaderContentsAndLogMissingProperties = (contents, leftItems, rightItem
 			}
 		}
 	} else {
-		console.log({
-			message: 'headerContents or headerContents.links is missing',
-		});
+		console.log('Zeal UI : headerContents or headerContents.links is missing');
 	}
 };
 
