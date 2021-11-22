@@ -28,10 +28,19 @@ const ZealProvider = ({
 
 	useEffect(() => {
 		localStorage.setItem('zeal-color-mode-variables', JSON.stringify(colorModeVariables));
+		let currColorMode = currTheme.initialColorMode;
 		const savedColorMode = localStorage.getItem('zeal-color-mode');
 		if (savedColorMode) {
-			setColorMode(savedColorMode);
+			currColorMode = savedColorMode;
+		} else {
+			const isDarkModePreferred = window.matchMedia('(prefers-color-scheme: dark)').matches;
+			if (isDarkModePreferred) {
+				currColorMode = 'dark';
+			} else {
+				currColorMode = 'light';
+			}
 		}
+		setColorMode(currColorMode);
 	}, []);
 
 	useEffect(() => {
