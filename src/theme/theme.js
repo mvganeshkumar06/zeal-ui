@@ -1,4 +1,5 @@
 const theme = {
+	initialColorMode: 'light',
 	color: {
 		light: {
 			background: {
