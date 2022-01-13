@@ -8,7 +8,6 @@ import LayoutContext from './layout-context';
 
 const ZealProvider = ({
 	customTheme,
-	customGlobalStyles,
 	headerContents,
 	sidebarContents,
 	footerContents,
@@ -27,7 +26,6 @@ const ZealProvider = ({
 	const [colorMode, setColorMode] = useState();
 
 	useEffect(() => {
-		localStorage.setItem('zeal-color-mode-variables', JSON.stringify(colorModeVariables));
 		let currColorMode = currTheme.initialColorMode;
 		const savedColorMode = localStorage.getItem('zeal-color-mode');
 		if (savedColorMode) {
@@ -45,11 +43,8 @@ const ZealProvider = ({
 
 	useEffect(() => {
 		if (colorMode) {
+			document.documentElement.setAttribute('zeal-color-mode', colorMode);
 			localStorage.setItem('zeal-color-mode', colorMode);
-			const currColorModeVariables = colorModeVariables[colorMode];
-			for (const prop in currColorModeVariables) {
-				document.documentElement.style.setProperty(prop, currColorModeVariables[prop]);
-			}
 		}
 	}, [colorMode]);
 
@@ -66,7 +61,7 @@ const ZealProvider = ({
 			<ThemeProvider theme={currTheme}>
 				<GlobalStyle
 					themeVariables={themeVariables}
-					customGlobalStyles={customGlobalStyles}
+					colorModeVariables={colorModeVariables}
 				/>
 				<LayoutContext.Provider
 					value={{
