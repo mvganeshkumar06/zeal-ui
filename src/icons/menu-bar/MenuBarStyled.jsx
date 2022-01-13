@@ -17,6 +17,10 @@ const MenuBarStyled = styled(Container)`
 		border: none;
 		background-color: var(--zeal-color-on-background);
 	}
+
+	@media (min-width: ${({ theme }) => theme.breakpoint.desktop}) {
+		display: none;
+	}
 `;
 
 export default MenuBarStyled;
