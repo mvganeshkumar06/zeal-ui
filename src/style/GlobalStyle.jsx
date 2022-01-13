@@ -10,10 +10,18 @@ const GlobalStyle = createGlobalStyle`
 
 :root{
 	--zeal-color-black: hsl(0, 0%, 0%);
-	--zeal-color-white: hsl(0, 0%, 100%);
+	--zeal-color-white: hsl(0, 0%, 90%);
 	${({ themeVariables }) => themeVariables};
 	transition: color 1s ease-in-out, background-color 1s ease-in-out;
 	scroll-padding-top: 4.5rem;
+}
+
+:root[zeal-color-mode="light"]{
+	${({ colorModeVariables }) => colorModeVariables.light};
+}
+
+:root[zeal-color-mode="dark"]{
+	${({ colorModeVariables }) => colorModeVariables.dark};
 }
 
 body{
@@ -68,12 +76,9 @@ p{
 	margin:1em 0em;
 }
 
-a {
-	text-decoration: none;
-	color: var(--zeal-color-on-background);
+a{
+	color:var(--zeal-color-on-background);
 }
-
-${({ customGlobalStyles }) => customGlobalStyles}
 
 `;
 
