@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { List, ListItem, Text, useMediaQuery } from '../../index';
-import { useTheme } from 'styled-components';
+import { List, ListItem, Text } from '../../index';
 import OverviewStyled from './OverviewStyled';
 
 const getOverviewContents = (setOverviewContents) => {
@@ -54,24 +53,17 @@ const Overview = ({ ...rest }) => {
 		};
 	}, []);
 
-	const theme = useTheme();
-	const [isDesktop] = useMediaQuery([`(min-width:${theme.breakpoint.desktop})`]);
-
 	return (
-		<>
-			{isDesktop && (
-				<OverviewStyled styledAs="aside" type="col" scrollAuto {...rest}>
-					<Text bold className="overviewTitle">
-						ON THIS PAGE
-					</Text>
-					<List type="link" className="overviewList">
-						{overviewContents.map((content) => (
-							<ListItem key={content.key}>{content.label}</ListItem>
-						))}
-					</List>
-				</OverviewStyled>
-			)}
-		</>
+		<OverviewStyled styledAs="aside" type="col" scrollAuto {...rest}>
+			<Text bold className="overviewTitle">
+				ON THIS PAGE
+			</Text>
+			<List type="link" className="overviewList">
+				{overviewContents.map((content) => (
+					<ListItem key={content.key}>{content.label}</ListItem>
+				))}
+			</List>
+		</OverviewStyled>
 	);
 };
 

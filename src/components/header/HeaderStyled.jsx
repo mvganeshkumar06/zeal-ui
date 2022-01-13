@@ -29,14 +29,6 @@ const HeaderStyled = styled(Container)`
 		margin: 0rem 0.5rem;
 	}
 
-	.headerLinkItem a:hover {
-		background-color: var(--zeal-color-highlight-base);
-	}
-
-	.headerLinkItemActive {
-		background-color: var(--zeal-color-highlight-base);
-	}
-
 	.colorModeSwitch {
 		margin-top: 0.5rem;
 	}

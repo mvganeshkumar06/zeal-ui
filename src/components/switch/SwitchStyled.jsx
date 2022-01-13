@@ -24,7 +24,7 @@ const SwitchStyled = styled.span`
 		left: 0;
 		right: 0;
 		bottom: 0;
-		border: 1px solid var(--zeal-color-border-base);
+		border: 1px solid var(--zeal-color-border);
 		border-radius: 1.5px;
 		transition: 0.4s;
 	}
@@ -37,9 +37,8 @@ const SwitchStyled = styled.span`
 		top: 4px;
 		left: 4px;
 		bottom: 4px;
-		border: 1px solid var(--zeal-color-black);
+		border: 1px solid var(--zeal-color-border);
 		border-radius: 1.5px;
-		background-color: var(--zeal-color-white);
 		transition: 0.4s;
 	}
 
@@ -50,6 +49,7 @@ const SwitchStyled = styled.span`
 
 	input:checked + .slider:before {
 		transform: translateX(1rem);
+		background-color: var(--zeal-color-white);
 	}
 
 	input:disabled + .slider {

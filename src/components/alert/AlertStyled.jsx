@@ -1,5 +1,33 @@
 import styled from 'styled-components';
-import { getBackgroundColor, getOnColor } from '../../util/index';
+import { getOnColor } from '../../util/index';
+
+const getAlertBackgroundColor = (color) => {
+	if (
+		color === 'primary' ||
+		color === 'secondary' ||
+		color === 'accent' ||
+		color === 'error' ||
+		color === 'warning' ||
+		color === 'success'
+	) {
+		return `var(--zeal-color-${color}-light)`;
+	}
+	return `var(--zeal-color-primary-light)`;
+};
+
+const getAlertBorderColor = (color) => {
+	if (
+		color === 'primary' ||
+		color === 'secondary' ||
+		color === 'accent' ||
+		color === 'error' ||
+		color === 'warning' ||
+		color === 'success'
+	) {
+		return `var(--zeal-color-${color}-dark)`;
+	}
+	return `var(--zeal-color-primary-dark)`;
+};
 
 const AlertStyled = styled.div`
 	${({ width, height, type }) => {
@@ -10,9 +38,8 @@ const AlertStyled = styled.div`
 			margin: '0.5rem 0rem',
 			borderRadius: '0.25rem',
 			color: getOnColor(type),
-			backgroundColor: getBackgroundColor(type),
-			display: 'flex',
-			alignItems: 'center',
+			backgroundColor: getAlertBackgroundColor(type),
+			borderLeft: `0.3rem solid ${getAlertBorderColor(type)}`,
 		};
 	}}
 `;

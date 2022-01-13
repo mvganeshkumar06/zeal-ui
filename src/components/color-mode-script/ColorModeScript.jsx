@@ -8,24 +8,14 @@ const ColorModeScript = ({ initialColorMode }) => {
 			if (savedColorMode) {
 				currColorMode = savedColorMode;
 			} else {
-				const isDarkModePreferred = window.matchMedia(
-					'(prefers-color-scheme: dark)',
-				).matches;
+				const isDarkModePreferred = window.matchMedia('(prefers-color-scheme: dark)').matches;
 				if (isDarkModePreferred) {
 					currColorMode = 'dark';
 				} else {
 					currColorMode = 'light';
 				}
 			}
-			const colorModeVariables = JSON.parse(
-				localStorage.getItem('zeal-color-mode-variables'),
-			);
-			if (colorModeVariables) {
-				const currColorModeVariables = colorModeVariables[currColorMode];
-				for (const prop in currColorModeVariables) {
-					document.documentElement.style.setProperty(prop, currColorModeVariables[prop]);
-				}
-			}
+			document.documentElement.setAttribute('zeal-color-mode', currColorMode);
 			localStorage.setItem('zeal-color-mode', currColorMode);
 		} catch (error) {
 			console.log(error);

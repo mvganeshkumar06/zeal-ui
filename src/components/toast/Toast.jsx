@@ -1,7 +1,18 @@
 import React, { useEffect } from 'react';
-import { ToastBackdropStyled, ToastContainerStyled } from './ToastStyled';
+import ToastContainerStyled from './ToastStyled';
 
-const Toast = ({ isOpen, onClose, delay = 3000, position, color, children, ...rest }) => {
+const Toast = ({
+	top,
+	right,
+	bottom,
+	left,
+	isOpen,
+	onClose,
+	delay = 3000,
+	color,
+	children,
+	...rest
+}) => {
 	useEffect(() => {
 		if (isOpen) {
 			const timerID = setTimeout(() => onClose(), delay);
@@ -11,11 +22,16 @@ const Toast = ({ isOpen, onClose, delay = 3000, position, color, children, ...re
 
 	return (
 		isOpen && (
-			<ToastBackdropStyled width="100%" height="100%" type="col" position={position}>
-				<ToastContainerStyled position={position} color={color} {...rest}>
-					{children}
-				</ToastContainerStyled>
-			</ToastBackdropStyled>
+			<ToastContainerStyled
+				top={top}
+				right={right}
+				bottom={bottom}
+				left={left}
+				color={color}
+				{...rest}
+			>
+				{children}
+			</ToastContainerStyled>
 		)
 	);
 };

@@ -24,7 +24,7 @@ const getHeaderContentsAndLogMissingProperties = (contents, leftItems, rightItem
 	}
 };
 
-const Header = ({ contents, showSidebar, setShowSidebar, sidebarEnabled, isDesktop, ...rest }) => {
+const Header = ({ contents, showSidebar, setShowSidebar, isDesktop, ...rest }) => {
 	const leftItems = [],
 		rightItems = [];
 	getHeaderContentsAndLogMissingProperties(contents, leftItems, rightItems);
@@ -42,12 +42,7 @@ const Header = ({ contents, showSidebar, setShowSidebar, sidebarEnabled, isDeskt
 			{...rest}
 		>
 			<Container type="row" width="auto" height="100%" colCenter key="left">
-				{sidebarEnabled && (
-					<MenuBar
-						onClick={() => setShowSidebar(!showSidebar)}
-						showSidebar={showSidebar}
-					/>
-				)}
+				<MenuBar onClick={() => setShowSidebar(!showSidebar)} showSidebar={showSidebar} />
 				{contents && contents.logo && (
 					<Image
 						src={contents.logo.src}
@@ -77,11 +72,8 @@ const Header = ({ contents, showSidebar, setShowSidebar, sidebarEnabled, isDeskt
 								return (
 									<ListItem
 										key={item}
-										className={`headerLinkItem ${
-											isClient && window.location.pathname === to
-												? 'headerLinkItemActive'
-												: ''
-										}`}
+										active={isClient && window.location.pathname === to}
+										className="headerLinkItem"
 									>
 										<a href={to}>{item}</a>
 									</ListItem>
@@ -107,11 +99,8 @@ const Header = ({ contents, showSidebar, setShowSidebar, sidebarEnabled, isDeskt
 								return (
 									<ListItem
 										key={item}
-										className={`headerLinkItem ${
-											isClient && window.location.pathname === to
-												? 'headerLinkItemActive'
-												: ''
-										}`}
+										active={isClient && window.location.pathname === to}
+										className="headerLinkItem"
 									>
 										<a href={to}>{item}</a>
 									</ListItem>

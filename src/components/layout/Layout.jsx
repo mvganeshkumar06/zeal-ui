@@ -18,20 +18,6 @@ const Layout = ({
 	children,
 	...rest
 }) => {
-	const theme = useTheme();
-	const [isDesktop] = useMediaQuery([`(min-width:${theme.breakpoint.desktop})`]);
-
-	const [showSidebar, setShowSidebar] = useState(false);
-
-	useEffect(() => {
-		const base = document.title.split('|')[0];
-		if (title) {
-			document.title = `${title} | ${base}`;
-		} else {
-			document.title = base;
-		}
-	}, [title]);
-
 	const {
 		headerContents,
 		sidebarContents,
@@ -47,17 +33,29 @@ const Layout = ({
 		sidebarEnabled = enableSidebar || enableSidebarOnCurrentPage,
 		overviewEnabled = enableOverview || enableOverviewOnCurrentPage;
 
+	const theme = useTheme();
+	const [isDesktop] = useMediaQuery([`(min-width:${theme.breakpoint.desktop})`]);
+
+	const [showSidebar, setShowSidebar] = useState(false);
+
+	useEffect(() => {
+		const base = document.title.split('|')[0];
+		if (title) {
+			document.title = `${title} | ${base}`;
+		} else {
+			document.title = base;
+		}
+	}, [title]);
+
 	const headerProps = {
 		contents: headerContents,
 		showSidebar,
 		setShowSidebar,
-		sidebarEnabled,
 		isDesktop,
 	};
 
 	const sidebarProps = {
 		contents: sidebarContents,
-		showSidebar,
 	};
 
 	const sidebarMobileProps = {
@@ -66,23 +64,21 @@ const Layout = ({
 		showSidebar,
 		setShowSidebar,
 		sidebarEnabled,
+		isDesktop,
 	};
 
 	return (
 		<LayoutStyled type="col" className={`${headerDisabled ? 'headerDisabled' : ''}`} {...rest}>
 			{!headerDisabled && <Header {...headerProps} />}
-			<Container type="row" width="100%">
-				{!isDesktop ? (
-					<SidebarMobile {...sidebarMobileProps} />
-				) : (
-					sidebarEnabled && <Sidebar {...sidebarProps} />
-				)}
+			<Container type="row" width="100%" rowCenter>
+				{sidebarEnabled && <Sidebar {...sidebarProps} />}
+				<SidebarMobile {...sidebarMobileProps} />
 				<Container
 					type="col"
 					width="100%"
-					className={`documentContainer ${showSidebar ? 'sidebarActive' : ''} ${
-						overviewEnabled ? 'overviewActive' : ''
-					} ${showSidebar && overviewEnabled ? 'sidebarAndOverviewActive' : ''}`}
+					className={`documentContainer ${
+						sidebarEnabled || overviewEnabled ? 'sidebarOrOverviewEnabled' : ''
+					}`}
 				>
 					{children}
 				</Container>

@@ -1,5 +1,32 @@
 import styled from 'styled-components';
-import { getBackgroundColor, getOnColor } from '../../util/index';
+
+const getBadgeColor = (color) => {
+	if (
+		color === 'primary' ||
+		color === 'secondary' ||
+		color === 'accent' ||
+		color === 'error' ||
+		color === 'warning' ||
+		color === 'success'
+	) {
+		return `var(--zeal-color-${color}-dark)`;
+	}
+	return `var(--zeal-color-primary-dark)`;
+};
+
+const getBadgeBackgroundColor = (color) => {
+	if (
+		color === 'primary' ||
+		color === 'secondary' ||
+		color === 'accent' ||
+		color === 'error' ||
+		color === 'warning' ||
+		color === 'success'
+	) {
+		return `var(--zeal-color-${color}-light)`;
+	}
+	return `var(--zeal-color-primary-light)`;
+};
 
 const BadgeStyled = styled.p`
 	${({ width, height, color }) => {
@@ -8,14 +35,12 @@ const BadgeStyled = styled.p`
 			height: height,
 			padding: '0.5rem',
 			margin: '0.5rem 0rem',
-			display: 'flex',
-			alignItems: 'center',
+			borderRadius: '0.25rem',
 			fontSize: '0.75rem',
 			fontWeight: 'bold',
 			textTransform: 'uppercase',
-			borderRadius: '0.25rem',
-			color: getOnColor(color),
-			backgroundColor: getBackgroundColor(color),
+			color: getBadgeColor(color),
+			backgroundColor: getBadgeBackgroundColor(color),
 		};
 	}};
 `;

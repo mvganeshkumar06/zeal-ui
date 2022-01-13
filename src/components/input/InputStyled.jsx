@@ -8,7 +8,7 @@ const InputStyled = styled.input`
 			padding: '0.5rem',
 			margin: '0.5rem 0rem',
 			border: `0.125rem solid ${
-				isInvalid ? 'var(--zeal-color-error)' : 'var(--zeal-color-border-base)'
+				isInvalid ? 'var(--zeal-color-error-main)' : 'var(--zeal-color-border)'
 			}`,
 			borderRadius: '0.25rem',
 			color: 'var(--zeal-color-on-background)',
@@ -18,7 +18,7 @@ const InputStyled = styled.input`
 	}}
 
 	&::placeholder {
-		color: var(--zeal-color-border-base);
+		color: var(--zeal-color-border);
 	}
 
 	&:disabled {
@@ -29,10 +29,10 @@ const InputStyled = styled.input`
 const ErrorMessageStyled = styled.span`
 	font-size: smaller;
 	color: var(--zeal-color-on-error);
-	background-color: var(--zeal-color-error);
+	background-color: var(--zeal-color-error-main);
 	padding: 0.25rem;
 	margin-bottom: 0.5rem;
-	border-radius: 0.25rem;
+	border-radius: 0.125rem;
 `;
 
 export { InputStyled, ErrorMessageStyled };
