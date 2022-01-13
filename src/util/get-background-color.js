@@ -1,8 +1,13 @@
 const getBackgroundColor = (color, customFallback) => {
-	if (color === 'primary' || color === 'secondary' || color === 'accent') {
+	if (
+		color === 'primary' ||
+		color === 'secondary' ||
+		color === 'accent' ||
+		color === 'error' ||
+		color === 'warning' ||
+		color === 'success'
+	) {
 		return `var(--zeal-color-${color}-main)`;
-	} else if (color === 'error' || color === 'warning' || color === 'success') {
-		return `var(--zeal-color-${color})`;
 	}
 	if (customFallback) {
 		return customFallback;
