@@ -3,8 +3,8 @@ import { createGlobalStyle } from 'styled-components';
 const GlobalStyle = createGlobalStyle`
 
 *{
-	margin:0;
-	padding:0;
+	padding: 0;
+	margin: 0;
 	box-sizing: border-box;
 }
 
@@ -12,8 +12,9 @@ const GlobalStyle = createGlobalStyle`
 	--zeal-color-black: hsl(0, 0%, 0%);
 	--zeal-color-white: hsl(0, 0%, 90%);
 	${({ themeVariables }) => themeVariables};
-	transition: color 1s ease-in-out, background-color 1s ease-in-out;
+	transition: background-color 0.5s ease 0s;
 	scroll-padding-top: 4.5rem;
+	line-height: 1.5;
 }
 
 :root[zeal-color-mode="light"]{
@@ -26,7 +27,7 @@ const GlobalStyle = createGlobalStyle`
 
 body{
 	color: var(--zeal-color-on-background);
-	background-color: var(--zeal-color-background-xdark);
+	background-color: var(--zeal-color-background-base-xdark);
 	font-family:var(--zeal-font-family);
 	scrollbar-color: var(--zeal-color-scrollbar-thumb) var(--zeal-color-scrollbar-track);
 }
@@ -48,36 +49,52 @@ body{
 	outline: auto;
 }
 
-h1{
-	margin: 0.67em 0em;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin: 1rem 0rem;
 }
 
-h2{
-	margin: 0.83em 0em;
+p {
+	margin: 0.75rem 0rem;
 }
 
-h3{
-	margin: 1em 0em;
+blockquote {
+	opacity: 0.75;
+	border-left: 0.25rem solid var(--zeal-color-border-base);
+	padding-left: 0.75rem;
+	margin: 0.75rem 0rem;
 }
 
-h4{
-	margin: 1.33em 0em;
+li {
+	margin: 0.75rem 0rem 0.75rem 1rem;
 }
 
-h5{
-	margin: 1.67em 0em;
+code {
+	font-size: 0.875rem;
+	color: var(--zeal-color-on-background);
+	background-color: var(--zeal-color-highlight-base);
+	padding: 0rem 0.25rem;
+	margin: 0.25rem 0rem;
+	border-radius: 0.125rem;
 }
 
-h6{
-	margin: 2.33em 0em;
+pre code{
+  background-color: transparent;
 }
 
-p{
-	margin:1em 0em;
+hr {
+	width: 100%;
+	margin: 0.75rem 0rem;
+	border: none;
+	border-bottom: 1px solid var(--zeal-color-border-base);
 }
 
-a{
-	color:var(--zeal-color-on-background);
+a {
+	color: var(--zeal-color-on-background);
 }
 
 `;
