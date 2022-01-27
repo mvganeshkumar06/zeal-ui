@@ -9,13 +9,13 @@ const SidebarStyled = styled(Container)`
 		font-size: 0.85rem;
 		min-width: 18rem;
 		max-width: 18rem;
-		height: 88vh;
+		height: 87vh;
 		position: sticky;
 		top: 5rem;
 		left: 0rem;
 		margin: 1rem 0rem 1rem 1rem;
 		padding: 0rem 0.5rem 0.5rem 0.5rem;
-		background-color: var(--zeal-color-background-dark);
+		background-color: var(--zeal-color-background-base-dark);
 		border-radius: 0.125rem;
 		box-shadow: var(--zeal-shadow-light);
 

@@ -15,7 +15,7 @@ const OverviewStyled = styled(Container)`
 		right: 0rem;
 		margin: 1rem 1rem 1rem 0rem;
 		padding: 0rem 0.5rem 0.5rem 0.5rem;
-		background-color: var(--zeal-color-background-dark);
+		background-color: var(--zeal-color-background-base-dark);
 		border-radius: 0.125rem;
 		box-shadow: var(--zeal-shadow-light);
 
@@ -23,9 +23,13 @@ const OverviewStyled = styled(Container)`
 			width: 100%;
 		}
 
-		.overviewTitle,
+		.overviewTitle {
+			margin-left: 0.5rem;
+		}
+
 		.subHeading2 {
 			margin-left: 0.5rem;
+			width: 95%;
 		}
 
 		.overviewListItemActive {

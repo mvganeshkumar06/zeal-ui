@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { getBackgroundColor, getHighlightColor, getOnColor } from '../../util/index';
+import { getBackgroundColor, getHighlightColor, getOnColor } from '../../util';
 
 const ButtonStyled = styled.button`
 	${({ width, height, color, floating, top, right, bottom, left }) => {

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Text, List, ListItem, Button, Image, Divider } from '../../index';
-import { Arrow } from '../../icons/index';
+import { Arrow } from '../../icons';
 import SidebarMobileStyled from './SidebarMobileStyled';
 import useClient from '../../hooks/use-client';
 

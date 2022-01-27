@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 import ToastContainerStyled from './ToastStyled';
 
 const Toast = ({
+	width,
+	height,
 	top,
 	right,
 	bottom,
@@ -23,6 +25,8 @@ const Toast = ({
 	return (
 		isOpen && (
 			<ToastContainerStyled
+				width={width}
+				height={height}
 				top={top}
 				right={right}
 				bottom={bottom}

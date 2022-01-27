@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, Text, Image, ColorModeSwitch, List, ListItem } from '../../index';
-import { MenuBar } from '../../icons/index';
+import { MenuBar } from '../../icons';
 import HeaderStyled from './HeaderStyled';
 import useClient from '../../hooks/use-client';
 

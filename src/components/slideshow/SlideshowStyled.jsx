@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Container } from '../../index';
-import { getBackgroundColor, getOnColor } from '../../util/index';
+import { getBackgroundColor, getOnColor } from '../../util';
 
 const SlideshowStyled = styled(Container)`
 	color: ${({ color }) => getOnColor(color, 'var(--zeal-color-on-background)')};

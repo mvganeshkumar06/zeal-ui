@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Container } from '../../index';
-import { getBackgroundColor, getOnColor } from '../../util/index';
+import { getBackgroundColor, getOnColor } from '../../util';
 
 const MenuContainerStyled = styled.div`
 	position: relative;
@@ -14,7 +14,7 @@ const MenuStyled = styled(Container)`
 			position: 'absolute',
 			zIndex: 'var(--zeal-z-index-banner)',
 			color: getOnColor(color, 'var(--zeal-color-on-background)'),
-			backgroundColor: getBackgroundColor(color, 'var(--zeal-color-background-light)'),
+			backgroundColor: getBackgroundColor(color, 'var(--zeal-color-background-base-light)'),
 			top: top,
 			right: right,
 			bottom: bottom,

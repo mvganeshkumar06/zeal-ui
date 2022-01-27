@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Container } from '../../index';
-import { getBackgroundColor, getOnColor } from '../../util/index';
+import { getBackgroundColor, getOnColor } from '../../util';
 
 const DrawerBackdropStyled = styled(Container)`
 	position: fixed;
@@ -15,7 +15,7 @@ const DrawerContainerStyled = styled(Container)`
 		return {
 			padding: '0.5rem',
 			color: getOnColor(color, 'var(--zeal-color-on-background)'),
-			backgroundColor: getBackgroundColor(color, 'var(--zeal-color-background-light)'),
+			backgroundColor: getBackgroundColor(color, 'var(--zeal-color-background-base-light)'),
 			boxShadow: 'var(--zeal-shadow-medium)',
 			zIndex: 'var(--zeal-z-index-overlay)',
 			position: 'fixed',

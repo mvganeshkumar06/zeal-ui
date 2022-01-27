@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { getBackgroundColor } from '../../util/index';
+import { getBackgroundColor } from '../../util';
 
 const SwitchStyled = styled.span`
 	margin: 0.25rem 0.5rem;
@@ -24,7 +24,7 @@ const SwitchStyled = styled.span`
 		left: 0;
 		right: 0;
 		bottom: 0;
-		border: 1px solid var(--zeal-color-border);
+		border: 1px solid var(--zeal-color-border-base);
 		border-radius: 1.5px;
 		transition: 0.4s;
 	}
@@ -37,7 +37,7 @@ const SwitchStyled = styled.span`
 		top: 4px;
 		left: 4px;
 		bottom: 4px;
-		border: 1px solid var(--zeal-color-border);
+		border: 1px solid var(--zeal-color-border-base);
 		border-radius: 1.5px;
 		transition: 0.4s;
 	}

@@ -2,14 +2,12 @@ import styled from 'styled-components';
 
 const UnorderedListStyled = styled.ul`
 	li {
-		margin: 0.5rem 1rem;
 		list-style-type: ${({ styleType }) => styleType};
 	}
 `;
 
 const OrderedListStyled = styled.ol`
 	li {
-		margin: 0.5rem 1rem;
 		list-style-type: ${({ styleType }) => styleType};
 	}
 `;
@@ -17,13 +15,14 @@ const OrderedListStyled = styled.ol`
 const StackedListStyled = styled.ul`
 	li {
 		padding: 0.5rem;
+		margin: 0rem;
 		list-style-type: none;
-		border: 1px solid var(--zeal-color-border);
+		border: 1px solid var(--zeal-color-border-base);
 		border-radius: 0rem;
 		border-bottom: none;
 	}
 	li:last-child {
-		border-bottom: 1px solid var(--zeal-color-border);
+		border-bottom: 1px solid var(--zeal-color-border-base);
 	}
 `;
 

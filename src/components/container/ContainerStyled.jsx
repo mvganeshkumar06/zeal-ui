@@ -130,7 +130,7 @@ const ContainerStyled = styled.div`
 		return {
 			width: width,
 			height: height,
-			border: withBorder ? '1px solid var(--zeal-color-border)' : '',
+			border: withBorder ? '1px solid var(--zeal-color-border-base)' : '',
 			display: 'flex',
 			flexDirection: getFlexDirection(type),
 			justifyContent: getJustifyContent(type, alignOptions),

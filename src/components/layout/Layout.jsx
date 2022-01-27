@@ -11,6 +11,7 @@ import useLayout from '../../hooks/use-layout';
 
 const Layout = ({
 	title,
+	sidebarContents: sidebarContentsOnCurrentPage,
 	disableHeader: disableHeaderOnCurrentpage,
 	disableFooter: disableFooterOnCurrentpage,
 	enableSidebar: enableSidebarOnCurrentPage,
@@ -55,11 +56,11 @@ const Layout = ({
 	};
 
 	const sidebarProps = {
-		contents: sidebarContents,
+		contents: sidebarContentsOnCurrentPage || sidebarContents,
 	};
 
 	const sidebarMobileProps = {
-		sidebarContents,
+		sidebarContents: sidebarContentsOnCurrentPage || sidebarContents,
 		headerContents,
 		showSidebar,
 		setShowSidebar,

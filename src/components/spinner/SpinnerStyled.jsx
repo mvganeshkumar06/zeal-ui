@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { getBackgroundColor } from '../../util/index';
+import { getBackgroundColor } from '../../util';
 
 const SpinnerStyled = styled.div`
 	display: inline-block;

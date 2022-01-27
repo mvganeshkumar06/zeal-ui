@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Container } from '../../index';
-import { getBackgroundColor, getOnColor } from '../../util/index';
+import { getBackgroundColor, getOnColor } from '../../util';
 
 const ModalBackdropStyled = styled(Container)`
 	position: fixed;
@@ -19,7 +19,7 @@ const ModalContainerStyled = styled(Container)`
 			marginTop: `${position === 'center' ? 'auto' : '5rem'}`,
 			marginBottom: `${position === 'center' ? 'auto' : ''}`,
 			color: getOnColor(color, 'var(--zeal-color-on-background)'),
-			backgroundColor: getBackgroundColor(color, 'var(--zeal-color-background-light)'),
+			backgroundColor: getBackgroundColor(color, 'var(--zeal-color-background-base-light)'),
 			borderRadius: '0.25rem',
 			boxShadow: 'var(--zeal-shadow-dense)',
 			zIndex: 'var(--zeal-z-index-overlay)',

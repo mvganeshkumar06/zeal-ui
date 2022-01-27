@@ -6,7 +6,7 @@ const HeaderStyled = styled(Container)`
 	top: 0rem;
 	padding-left: 0.25rem;
 	padding-right: 0.25rem;
-	background-color: var(--zeal-color-background-main);
+	background-color: var(--zeal-color-background-base-main);
 	box-shadow: var(--zeal-shadow-medium);
 	z-index: var(--zeal-z-index-banner);
 

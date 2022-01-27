@@ -1,7 +1,7 @@
 import React from 'react';
 import useSlideShow from '../../hooks/use-slide-show';
 import { Container } from '../../index';
-import { Arrow } from '../../icons/index';
+import { Arrow } from '../../icons';
 import SlideshowStyled from './SlideshowStyled';
 
 const SlideShow = ({

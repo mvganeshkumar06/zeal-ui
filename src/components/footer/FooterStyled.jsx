@@ -4,7 +4,7 @@ import { Container } from '../../index';
 const FooterStyled = styled(Container)`
 	margin-top: auto;
 	padding: 1rem;
-	background-color: var(--zeal-color-background-main);
+	background-color: var(--zeal-color-background-base-main);
 	box-shadow: var(--zeal-shadow-medium);
 
 	.footerLinkContainer {
