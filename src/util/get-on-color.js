@@ -1,12 +1,7 @@
+import { isValidColorProp } from './index';
+
 const getOnColor = (color, customFallback) => {
-	if (
-		color === 'primary' ||
-		color === 'secondary' ||
-		color === 'accent' ||
-		color === 'error' ||
-		color === 'warning' ||
-		color === 'success'
-	) {
+	if (isValidColorProp(color)) {
 		return `var(--zeal-color-on-${color})`;
 	}
 	if (customFallback) {
