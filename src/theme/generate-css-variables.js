@@ -1,4 +1,4 @@
-import { generateCSSVariablesHelper } from '../util/index';
+import { generateCSSVariablesHelper } from '../util';
 
 const generateCSSVariables = (theme) => {
 	const themeVariables = generateCSSVariablesHelper(theme, '--zeal');
