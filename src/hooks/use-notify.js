@@ -1,17 +1,25 @@
 import { useState } from 'react';
 
 const useNotify = () => {
-	const [isOpen, setIsOpen] = useState('');
+	const [isOpen, setIsOpen] = useState(false);
 
-	const onOpen = (notifyName) => {
-		setIsOpen(notifyName);
+	const onOpen = () => {
+		setIsOpen(true);
 	};
 
 	const onClose = () => {
-		setIsOpen('');
+		setIsOpen(false);
 	};
 
-	return { isOpen, onOpen, onClose };
+	const onToggle = () => {
+		if (isOpen) {
+			onClose();
+		} else {
+			onOpen();
+		}
+	};
+
+	return { isOpen, onOpen, onClose, onToggle };
 };
 
 export default useNotify;
