@@ -5,7 +5,6 @@ const InputStyled = styled.input`
 		return {
 			width: width,
 			height: height,
-			padding: '0.5rem',
 			margin: '0.5rem 0rem',
 			border: `0.125rem solid ${
 				isInvalid ? 'var(--zeal-color-error-main)' : 'var(--zeal-color-border-base)'
@@ -24,9 +23,36 @@ const InputStyled = styled.input`
 	&:disabled {
 		cursor: not-allowed;
 	}
+
+	&[type='button'],
+	&[type='email'],
+	&[type='password'],
+	&[type='reset'],
+	&[type='search'],
+	&[type='submit'],
+	&[type='tel'],
+	&[type='text'],
+	&[type='url'] {
+		padding: 0.5rem;
+	}
+
+	&[type='date'],
+	&[type='datetime-local'],
+	&[type='date'],
+	&[type='file'],
+	&[type='month'],
+	&[type='number'],
+	&[type='time'],
+	&[type='week'] {
+		padding: 0.25rem 0.5rem;
+	}
+
+	&[type='file'] {
+		padding: 0.25rem;
+	}
 `;
 
-const ErrorMessageStyled = styled.span`
+const ErrorMessageStyled = styled.p`
 	font-size: smaller;
 	color: var(--zeal-color-on-error);
 	background-color: var(--zeal-color-error-main);

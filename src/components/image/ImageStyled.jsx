@@ -38,7 +38,6 @@ const ImageStyled = styled.img`
 			margin: `${type === 'row' || type === 'col' ? '0rem' : '0.5rem 0rem'}`,
 			borderRadius: getBorderRadius(type),
 			color: 'var(--zeal-color-on-background)',
-			backgroundColor: 'var(--zeal-color-highlight-base)',
 		};
 	}}
 `;

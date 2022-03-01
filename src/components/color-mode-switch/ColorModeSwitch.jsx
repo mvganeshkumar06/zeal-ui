@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useColorMode, Switch } from '../../index';
 
-const ColorModeSwitch = () => {
+const ColorModeSwitch = ({ ...rest }) => {
 	const { colorMode, toggleColorMode } = useColorMode();
 	const [checked, setChecked] = useState(false);
 
@@ -13,7 +13,7 @@ const ColorModeSwitch = () => {
 		}
 	}, [colorMode]);
 
-	return <Switch onChange={() => toggleColorMode()} checked={checked} />;
+	return <Switch onChange={() => toggleColorMode()} checked={checked} {...rest} />;
 };
 
 export default ColorModeSwitch;

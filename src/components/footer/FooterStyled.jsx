@@ -7,10 +7,6 @@ const FooterStyled = styled(Container)`
 	background-color: var(--zeal-color-background-base-main);
 	box-shadow: var(--zeal-shadow-medium);
 
-	.footerLinkContainer {
-		margin-bottom: 2rem;
-	}
-
 	.footerLinkItem {
 		width: auto;
 		margin: 0.25rem 0rem;
@@ -22,7 +18,7 @@ const FooterStyled = styled(Container)`
 	}
 
 	.footerLogo {
-		margin: 0.25rem 0rem;
+		margin: 2rem 0rem 0.25rem 0rem;
 		object-fit: cover;
 	}
 

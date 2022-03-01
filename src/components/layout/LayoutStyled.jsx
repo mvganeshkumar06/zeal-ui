@@ -11,8 +11,11 @@ const LayoutStyled = styled(Container)`
 	.documentContainer {
 		min-height: 100vh;
 		padding: 1rem;
-		background-color: var(--zeal-color-background-base-dark);
 		box-shadow: var(--zeal-shadow-light);
+	}
+
+	.sidebarOrOverviewEnabled {
+		background-color: var(--zeal-color-background-base-dark);
 	}
 
 	@media (min-width: ${({ theme }) => theme.breakpoint.desktop}) {
